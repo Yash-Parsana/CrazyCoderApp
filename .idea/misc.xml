@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/backarrow.xml" value="0.1565" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/btn_bg.xml" value="0.2275" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/codeforces.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/dialog_background.xml" value="0.1475" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/edit_text_bg.xml" value="0.2275" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/ic_baseline_account_circle_24_green.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/ic_chat.xml" value="0.14" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/ic_friend.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/ic_round_person_24.xml" value="0.1475" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/leader_board_selected_bg.xml" value="0.1475" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/leetcode.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/paltform_white_bg.xml" value="0.1475" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/plat_form_selected.xml" value="0.1475" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/platform_bg.xml" value="0.1475" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/platform_selected_bg.xml" value="0.1475" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/profile_platform_selected.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/progressbar.xml" value="0.17" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/receiver_bg.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/round.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/sde_row_bg.xml" value="0.14" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/sender_bg.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/sendimage.xml" value="0.1565" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/splash_background.xml" value="0.2125" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/splash_bg.xml" value="0.1" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/drawable/spoj.xml" value="0.153" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_add_friend.xml" value="0.1984375" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_add_platform.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_addplatform_profile.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_email_reset_link_sent.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_email_varification_sign_up.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_let_us_chat.xml" value="0.2" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_mysheet.xml" value="0.1984375" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_password_reset.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_password_reset_link_sent.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_sign_in.xml" value="0.176" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_sign_up.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_splash_screen.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/activity_wrong_emailsignup.xml" value="0.1984375" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/add_platform_dialog.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/chat_shimmer_layout.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/chat_shimmer_layout_sender.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/chatdetails_shimmer_layout_receiver.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/chatdetails_shimmer_layout_sender.xml" value="0.17753623188405798" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/contest_layout.xml" value="0.2" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/contest_shimmer_layout.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/dropdown_item.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/dropdown_items_green.xml" value="0.25060240963855424" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/fragment_chat.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/fragment_contests.xml" value="0.264" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/fragment_home.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/fragment_leader_board.xml" value="0.2" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/fragment_leader_boare.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/fragment_profile.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/fragment_sde.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/friend_chat_row.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/leaderboard_ranklist_row.xml" value="0.264" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/leaderboard_shimmer_layout.xml" value="0.4" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_receiver.xml" value="0.264" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_sender.xml" value="0.2" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_shimmer_layout_receiver1.xml" value="0.2" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_shimmer_layout_receiver2.xml" value="0.264" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_shimmer_layout_sender1.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_shimmer_layout_sender2.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_shimmer_layout_sender3.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/let_us_chat_title_shimmer.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/notification.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/password_resent_link_sent.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/platforms.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/profile_detail_shimmer.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/profile_user_info_row.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/progressbar.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/question_row.xml" value="0.25120772946859904" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/sde_row_shimmer.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/sde_sheet_row.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/show_date_in_chat.xml" value="0.6" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/layout/spoj.xml" value="0.21666666666666667" />
+        <entry key="..\:/Android/CrazyCoder/app/src/main/res/menu/manu_items.xml" value="0.21666666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

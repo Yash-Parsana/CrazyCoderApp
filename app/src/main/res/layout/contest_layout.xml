@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/darkBG"
+    android:paddingVertical="5dp"
+    android:paddingHorizontal="6dp"
+    >
+
+    <TextView
+        android:id="@+id/contestname"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:text="Contest1"
+        android:padding="8sp"
+        android:fontFamily="@font/quicksand_light"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/starttime"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.5"
+        android:padding="8.5sp"
+        android:fontFamily="@font/quicksand_light"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="07-07-2014\n21:08"
+        />
+    <TextView
+        android:id="@+id/endtime"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.5"
+        android:padding="8.5sp"
+        android:fontFamily="@font/quicksand_light"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="31-07-2021\n00:00"
+
+        />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="top"
+        >
+        <ImageView
+            android:id="@+id/reminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_calendar_today_24"
+            />
+    </LinearLayout>
+
+</LinearLayout>

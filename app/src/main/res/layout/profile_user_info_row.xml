@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="8dp"
+    android:gravity="center"
+    android:background="@color/darkBG"
+    >
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:paddingVertical="5dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="25dp"
+        android:gravity="left"
+        >
+        <TextView
+            android:id="@+id/profile_property"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="Yash Parsana"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="20dp"
+        >
+        <TextView
+            android:id="@+id/prifile_property_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:text="361"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

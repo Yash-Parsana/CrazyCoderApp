@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBG"
+    android:layout_marginTop="8dp"
+    tools:context=".Fragment.chatFragment">
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/defaultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="10sp"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:text="You have not Added Your Friends "
+        />
+
+    <ImageView
+        android:id="@+id/addbtn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_baseline_person_add_alt_1_24"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingVertical="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/round"
+        android:backgroundTint="@color/white"
+
+        />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/chatshimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+            <include layout="@layout/chat_shimmer_layout"/>
+
+        </LinearLayout>
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</FrameLayout>

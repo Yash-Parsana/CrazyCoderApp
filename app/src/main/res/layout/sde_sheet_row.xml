@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="@drawable/sde_row_bg"
+    android:layout_marginVertical="10dp"
+    >
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       >
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center"
+           >
+
+           <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+               android:id="@+id/sdesheetImage"
+               android:layout_width="90dp"
+               android:layout_height="90dp"
+               android:layout_gravity="center"
+               android:src="@drawable/ic_baseline_account_circle_24_green"
+               />
+
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:paddingLeft="15dp"
+           android:layout_marginTop="-8dp"
+           >
+
+           <TextView
+               android:id="@+id/sheetname"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="SheetName"
+               android:textColor="@color/sde"
+               android:textSize="19sp"
+               android:textStyle="bold"
+               android:layout_marginVertical="3dp"
+               />
+
+           <TextView
+               android:id="@+id/topics"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Topic : DSA CN DBMS"
+               android:textColor="@color/sde"
+               android:textSize="13sp"
+               android:layout_marginVertical="1dp"
+               />
+
+           <TextView
+               android:id="@+id/madeby"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="13sp"
+               android:textColor="@color/sde"
+               android:text="prepared By Striver"
+               android:layout_marginVertical="1dp"
+               />
+           <TextView
+               android:id="@+id/workedat"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="13sp"
+               android:textColor="@color/sde"
+               android:text="Worked at Google , Amazon"
+               android:layout_marginVertical="1dp"
+               />
+
+       </LinearLayout>
+
+
+   </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:gravity="bottom"-->
+<!--        >-->
+<!--        <View-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            />-->
+<!--        <ImageView-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:src="@drawable/ic_youtube" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:src="@drawable/ic_linkedin"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            />-->
+<!--    </LinearLayout>-->
+
+
+</LinearLayout>

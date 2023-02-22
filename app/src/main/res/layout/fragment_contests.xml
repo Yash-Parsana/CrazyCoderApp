@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkBG"
+    tools:context=".Fragment.contestsFragment">
+
+
+        <LinearLayout
+            android:id="@+id/horizontalview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="90sp"
+                android:textSize="15sp"
+                android:paddingTop="3sp"
+                android:paddingBottom="5sp"
+                android:paddingHorizontal="5sp"
+                android:gravity="center"
+                android:fontFamily="@font/quicksand_light"
+                android:text="Upcoming"
+                android:textColor="@color/white"
+                android:background="@color/btnBgColor"
+                android:layout_height="wrap_content"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/logoBgColor"
+                android:layout_marginHorizontal="10dp"
+                />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/platformrecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                tools:listitem="@layout/platforms"
+                >
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:max="100"
+            android:backgroundTint="@color/white"
+            android:visibility="invisible"
+            android:indeterminateTint="@color/btnBgColor"
+            android:layout_marginTop="-7dp"
+            android:layout_marginBottom="-7dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/tablehader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/btnBgColor"
+                android:padding="7dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="Name"
+                    android:padding="8sp"
+                    android:fontFamily="@font/quicksand_light"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="Start"
+                    android:padding="8sp"
+                    android:fontFamily="@font/quicksand_light"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:padding="8sp"
+                    android:fontFamily="@font/quicksand_light"
+                    android:text="End"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+                    <include layout="@layout/contest_shimmer_layout"/>
+
+
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contestRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tablehader"
+                />
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

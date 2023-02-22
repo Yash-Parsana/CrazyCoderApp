@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/contests"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Contests"
+        app:cnb_iconColor="@color/btnBgColor"/>
+    <item
+        android:id="@+id/leadrboard"
+        android:icon="@drawable/ic_baseline_leaderboard_24"
+        android:title="Leaderboard"
+        app:cnb_iconColor="@color/leaderboard"/>
+    <item
+        android:id="@+id/sde"
+        android:icon="@drawable/ic_software_engineer"
+        android:title="SDE"
+        app:cnb_iconColor="@color/sde" />
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/ic_chat"
+        android:title="Chat"
+        app:cnb_iconColor="@color/chat" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_round_person_24"
+        android:title="Profile"
+        app:cnb_iconColor="@color/profile" />
+</menu>

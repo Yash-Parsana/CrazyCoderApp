@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBG"
+    android:orientation="vertical"
+    android:windowSoftInputMode="adjustPan"
+    tools:context=".LetUsChatActivity">
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/linear"
+        android:layout_below="@id/toolbar"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <include layout="@layout/let_us_chat_shimmer_layout_receiver1"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_sender1"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_sender2"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_receiver2"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_sender3"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_sender2"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_receiver1"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_receiver2"/>
+            <include layout="@layout/let_us_chat_shimmer_layout_receiver1"/>
+
+
+        </LinearLayout>
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/letuschatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/linear"
+        android:keyboardNavigationCluster="true"
+    />
+
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/dialogDarkcolor"-->
+<!--        android:minHeight="?attr/actionBarSize"-->
+<!--        android:theme="?attr/actionBarTheme">-->
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dialogDarkcolor"
+        android:orientation="horizontal"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="8dp">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/backarrow"
+
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profileimage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_baseline_account_circle_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="2dp">
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YashParsana"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:textColor="@color/btnBgColor"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+<!--    </androidx.appcompat.widget.Toolbar>-->
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/darkBG"
+        android:paddingTop="3dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:paddingBottom="5dp"
+        >
+
+        <EditText
+            android:id="@+id/message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:background="@drawable/btn_bg"
+            android:backgroundTint="@color/dialogDarkcolor"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="Message"
+            android:inputType="textUri"
+            android:paddingHorizontal="12sp" />
+
+        <ImageView
+            android:id="@+id/sendbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:backgroundTint="@color/chat"
+            android:paddingLeft="12dp"
+            android:paddingTop="11dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="11dp"
+            android:src="@drawable/sendimage" />
+    </LinearLayout>
+
+
+</RelativeLayout>

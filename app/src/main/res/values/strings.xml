@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Crazy Coder</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="password">Password</string>
+    <string name="email_adderss">Email Adderss</string>
+    <string name="crazycoder_username">CrazyCoder Username</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="have_an_account">Have an Account?</string>
+    <string name="childNameToid">userNameToId</string>
+    <string name="default_web_client_id_inString">681296739188-6gvu7iasijrmaksp0chv83gm1jdpesru.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="platforms">
+        <item>Codeforces</item>
+        <item>Leetcode</item>
+        <item>Spoj</item>
+        <item>Codechef</item>
+
+    </string-array>
+
+
+</resources>

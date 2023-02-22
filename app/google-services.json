@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "681296739188",
+    "firebase_url": "https://crazy-coder-8e1ec-default-rtdb.firebaseio.com",
+    "project_id": "crazy-coder-8e1ec",
+    "storage_bucket": "crazy-coder-8e1ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681296739188:android:9308b914b513ddf9434a21",
+        "android_client_info": {
+          "package_name": "com.parsanatech.crazycoder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681296739188-825fdds5eig9kqkn4akb2tdgl34qh4of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.parsanatech.crazycoder",
+            "certificate_hash": "c3f4713188ea29f5421b0bc73d8742db030acc0b"
+          }
+        },
+        {
+          "client_id": "681296739188-6gvu7iasijrmaksp0chv83gm1jdpesru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPPXVRLFIQDvha_IkD8g2uUCFdGXn0T60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681296739188-6gvu7iasijrmaksp0chv83gm1jdpesru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

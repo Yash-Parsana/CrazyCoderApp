@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/platform_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="3dp"
+    android:paddingBottom="5dp"
+    android:paddingHorizontal="10dp"
+    android:layout_marginHorizontal="5dp"
+    >
+
+    <TextView
+        android:id="@+id/platformname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CodeChef"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/quicksand_light"
+
+        />
+
+
+</LinearLayout>

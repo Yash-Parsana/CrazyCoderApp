@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/darkBG"
+    android:gravity="center_horizontal"
+    android:id="@+id/swipRefreshView"
+    tools:context=".Fragment.profileFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:max="100"
+            android:backgroundTint="@color/white"
+            android:visibility="invisible"
+            android:indeterminateTint="@color/profile"
+            android:layout_marginTop="-7dp"
+            android:layout_marginBottom="-7dp"
+            />
+        <LinearLayout
+            android:id="@+id/topbox"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@+id/backButton"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profileImage"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_account_circle_24_green"
+                    />
+
+                <FrameLayout
+                    android:id="@+id/addimagebtn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="-25dp"
+                    android:background="@drawable/round"
+                    android:backgroundTint="@color/white"
+                    >
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/add_green"
+                        />
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yash Parsana"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageCf"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/codeforces"
+                        android:layout_marginHorizontal="8dp"
+                        />
+                    <ImageView
+                        android:id="@+id/imageLc"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/leetcode"
+                        android:layout_marginHorizontal="8dp"
+
+                        />
+                    <ImageView
+                        android:id="@+id/imageSj"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/spoj"
+                        android:layout_marginHorizontal="8dp"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="5dp"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/horizontalview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/AddPlatform"
+                    android:layout_width="wrap_content"
+                    android:textSize="15sp"
+                    android:paddingTop="3sp"
+                    android:paddingBottom="5sp"
+                    android:paddingHorizontal="5sp"
+                    android:gravity="center"
+                    android:fontFamily="@font/quicksand_light"
+                    android:text="Add Platform"
+                    android:textColor="@color/white"
+                    android:background="@color/profile"
+                    android:layout_height="wrap_content"
+                    />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/logoBgColor"
+                    android:layout_marginHorizontal="10dp"
+                    />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/platformrecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/platforms">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/userInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <include layout="@layout/profile_detail_shimmer"/>
+                            <include layout="@layout/profile_detail_shimmer"/>
+                            <include layout="@layout/profile_detail_shimmer"/>
+                            <include layout="@layout/profile_detail_shimmer"/>
+                            <include layout="@layout/profile_detail_shimmer"/>
+                            <include layout="@layout/profile_detail_shimmer"/>
+                            <include layout="@layout/profile_detail_shimmer"/>
+                            <include layout="@layout/profile_detail_shimmer"/>
+
+
+
+
+                        </LinearLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/userInfoRecyclerviwInprofile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

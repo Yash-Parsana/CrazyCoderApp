@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkBG"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="5dp"
+    >
+
+    <TextView
+        android:id="@+id/leaderboarduserhandle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="YashParsana"
+        android:padding="8sp"
+        android:fontFamily="@font/quicksand_light"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:padding="8sp"
+        android:gravity="center"
+        android:fontFamily="@font/quicksand_light"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:text="1"
+        />
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_baseline_delete_24"
+        />
+
+</LinearLayout>

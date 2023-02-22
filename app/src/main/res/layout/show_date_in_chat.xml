@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="3dp"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/datevalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/dialogDarkcolor"
+        android:paddingVertical="2dp"
+        android:paddingHorizontal="7dp"
+        android:textSize="10sp"
+        android:textColor="@color/white"
+        android:text="10/4/2022"
+        />
+
+</LinearLayout>
