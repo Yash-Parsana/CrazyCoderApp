@@ -7,7 +7,7 @@ CrazyCoder aims to promote and help grow the competitive programming community w
 This app is very easy to use and has a high priority to the user's comfort.
 
 FEATURES
-• See contests platform-wise
+• See contests platform-wise<br>
 • Differentiate the running and upcoming contests
 • Set Reminder
 • Leaderboard to Compare rank with friends(healthy competition)
