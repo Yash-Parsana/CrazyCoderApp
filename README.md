@@ -6,22 +6,24 @@ CrazyCoder aims to promote and help grow the competitive programming community w
 
 This app is very easy to use and has a high priority to the user's comfort.
 
-FEATURES
-• See contests platform-wise<br>
-• Differentiate the running and upcoming contests
-• Set Reminder
-• Leaderboard to Compare rank with friends(healthy competition)
-• SDE section for interview preparation (Recommended by employees of MAANG companies)
-• Chat With Friends
-• Track Your Own Progress
-• Can visit the Profile page directly from the app
+FEATURES<br>
+• See contests platform Wise<br>
+• Differentiate the running and upcoming contests<br>
+• Set Reminder<br>
+• Leaderboard to Compare rank with friends(healthy competition)<br>
+• SDE section for interview preparation<br>
+• Chat With Friends<br>
+• Track Your Own Progress<br>
+• Can visit the Profile page directly from the app<br>
 
-PLATFORMS AVAILABLE
-• AtCoder
-• CodeChef
-• Codeforces
-• HackerEarth
-• HackerRank
-• KickStart
-• LeetCode
-• TopCoder
+PLATFORMS AVAILABLE<br>
+• AtCoder<br>
+• CodeChef<br>
+• Codeforces<br>
+• HackerEarth<br>
+• HackerRank<br>
+• KickStart<br>
+• LeetCode<br>
+• TopCoder<br>
+
+Backend of this app : https://github.com/Yash-Parsana/CrazyCoder
