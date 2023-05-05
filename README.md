@@ -26,5 +26,5 @@ PLATFORMS AVAILABLE<br>
 • LeetCode<br>
 • TopCoder<br>
 
-Backend of this app : https://github.com/Yash-Parsana/CrazyCoder
+Backend of this app : https://github.com/Yash-Parsana/CrazyCoder<br>
 PlayStore : https://play.google.com/store/apps/details?id=com.parsanatech.crazycoder
