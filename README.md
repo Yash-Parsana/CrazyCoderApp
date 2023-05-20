@@ -27,3 +27,12 @@ PLATFORMS AVAILABLE<br>
 • KickStart<br>
 • LeetCode<br>
 • TopCoder<br>
+
+
+Contribution guidline for GssoC'23
+1.Star the Repo <br>
+2.Find an issue or create new issue <br>
+3.Fork the Repo
+4.Make new branch and do pull request<br>
+
+
