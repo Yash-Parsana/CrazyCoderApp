@@ -20,6 +20,7 @@
 6. You must add a video of your changes that you made in the app in your PR.
 7. Create a **new branch** for the changes you want to make in this project & **delete it** after your PR gets merged.
 8. Mention the **relevant issue no.** in your PR, so to avoid any confusions.
+9. Write proper and descriptive **commit messages** while raising your PR. 
 
 ## Resources 
 
