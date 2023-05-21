@@ -4,11 +4,9 @@
 
 <br>
 
-<div align="center">
- <a href="https://play.google.com/store/apps/details?id=com.parsanatech.crazycoder">
-  <img width="400" src="https://github.com/utkarsh006/CrazyCoderApp/assets/94545831/3049ce1a-f5eb-4db0-8efd-017b5be7adb3" />
-</a>
-</div>
+### Install the [CrazyCoder App 🧑‍💻](https://play.google.com/store/apps/details?id=com.parsanatech.crazycoder)
+  
+<br>
 
 ## About CrazyCoder 
 - CrazyCoder is a single place for **viewing all the coding contests** happening across various coding platforms. 
