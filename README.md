@@ -1,37 +1,14 @@
  <p align="center">
  <img src="https://github.com/Yash-Parsana/CrazyCoderApp/assets/77839976/d9197945-46b2-4fe1-893b-a6bfe8f3477b" height= 500 width = 500 />
 </p>
+
+# CrazyCoder
+
+
 Competitive programming (CP) a large growing community is very well known for algorithms, data structures and Mathematics, and is a must have skill for any computer science student or top tech companies job aspirant.<br>
 <br>
 CrazyCoder is born out of our need to have a single place to view all the coding contests happening across many platforms. The app automatically updates all the coding contests and hackathons. You will never miss any contest.
 CrazyCoder aims to promote and help grow the competitive programming community worldwide.<br>
-
-interview preparation (Recommended by employees of MAANG companies)<br>
-• Chat With Friends<br>
-• Track Your Own Progress<br>
-• Can visit the Profile page directly from the app<br>
-PLATFORMS AVAILABLE<br>
-• AtCoder<br>
-• CodeChef<br>
-• Codeforces<br>
-• HackerEarth<br>
-• HackerRank<br>
-• KickStart<br>
-• LeetCode<br>
-• TopCoder<br>
-
-
-Contribution guidline for GssoC'23<br>
-1.Star the Repo <br>
-2.Find an issue or create new issue <br>
-3.Fork the Repo<br>
-4.Make new branch and do pull request<br>
-
- more details about the project:
-
----
-
-# CrazyCoder
 
 CrazyCoder is a comprehensive app designed to cater to the needs of the competitive programming community. It serves as a one-stop solution for viewing coding contests and hackathons happening across multiple platforms. With its user-friendly interface and automatic updates, CrazyCoder ensures that you never miss any contest, enabling you to stay on top of your competitive programming journey.
 
