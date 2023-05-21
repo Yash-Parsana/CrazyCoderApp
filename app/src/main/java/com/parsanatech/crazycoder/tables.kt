@@ -19,7 +19,7 @@ class FriendLeetcode(@PrimaryKey var handle: String, @ColumnInfo var itsMe:Boole
 }
 
 @Entity(tableName = "FriendSpoj", indices = [Index(value = ["handle"], unique = true)])
-class FriendSpoj(@PrimaryKey var handle: String, @ColumnInfo var itsMe:Boolean)
+class FriendAtcoder(@PrimaryKey var handle: String, @ColumnInfo var itsMe:Boolean)
 {
 
 }

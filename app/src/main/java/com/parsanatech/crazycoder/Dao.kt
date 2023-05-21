@@ -14,7 +14,7 @@ interface Dao {
     fun FriendInsertLeetcode(obj:FriendLeetcode)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun FriendInsertSpoj(obj:FriendSpoj)
+    fun FriendInsertAtcoder(obj:FriendAtcoder)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun FriendInsertCodechef(obj:FriendCodechef)
@@ -26,7 +26,7 @@ interface Dao {
     fun FriendDeleteLeetcode(obj:FriendLeetcode)
 
     @Delete
-    fun FriendDeleteSpoj(obj:FriendSpoj)
+    fun FriendDeleteAtcoder(obj:FriendAtcoder)
 
     @Delete
     fun FriendDeleteCodechef(obj:FriendCodechef)
@@ -38,7 +38,7 @@ interface Dao {
     fun getFriendsLeetcodeHandles():LiveData<List<FriendLeetcode>>
 
     @Query("select*from FriendSpoj")
-    fun getFriendSpojHandle():LiveData<List<FriendSpoj>>
+    fun getFriendAtcoderHandle():LiveData<List<FriendAtcoder>>
 
     @Query("select*from FriendCodechef")
     fun getFriendCodechefHandle():LiveData<List<FriendCodechef>>

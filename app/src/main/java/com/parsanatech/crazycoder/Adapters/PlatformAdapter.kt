@@ -26,7 +26,7 @@ class PlatformAdapter(private val listner: platFormSelection): RecyclerView.Adap
         platformList.add("Codeforces")
         platformList.add("HackerRank")
         platformList.add("HackerEarth")
-        platformList.add("KikStart")
+//        platformList.add("KikStart")
         platformList.add("LeetCode")
 
 
@@ -35,9 +35,8 @@ class PlatformAdapter(private val listner: platFormSelection): RecyclerView.Adap
         nameforapi.add("codeforces")
         nameforapi.add("hacker_rank")
         nameforapi.add("hacker_earth")
-        nameforapi.add("kick_start")
+//        nameforapi.add("kick_start")
         nameforapi.add("leet_code")
-
 
     }
 
