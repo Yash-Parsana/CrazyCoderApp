@@ -26,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.parsanatech.crazycoder.databinding.ActivityEmailVarificationSignUpBinding
 import com.parsanatech.crazycoder.databinding.ActivitySignUpBinding
 import com.parsanatech.crazycoder.databinding.ActivityWrongEmailsignupBinding
+import java.util.regex.Pattern
 import kotlin.Exception
 
 
@@ -109,11 +110,11 @@ class SignUp : AppCompatActivity() {
                     binding.password.setError("Please Enter Password")
 
                 }
-                if(EnteredPassword.isNotEmpty()&&EnteredPassword.length<6)
+                if(EnteredPassword.isNotEmpty()&&EnteredPassword.length<12)
                 {
-                    Log.d("Password Length Less than 6 char","Yes")
+                    Log.d("Password Length Less than 12 char","Yes")
                     progressbar.visibility=View.INVISIBLE
-                    binding.password.setError("Password should be at least 6 characters")
+                    binding.password.setError("Password should be at least 12 characters")
 
                 }
                 if(EnteredConfirmPassword.isEmpty())
@@ -123,6 +124,28 @@ class SignUp : AppCompatActivity() {
                     binding.confirePassword.setError("please Re-enter password")
 
                 }
+
+                val capitalPattern = Pattern.compile("[A-Z]")
+                if (!capitalPattern.matcher(EnteredPassword).find()) {
+                    Log.d("Password Should contain atleast 1 Capital letter","Yes")
+                    progressbar.visibility=View.INVISIBLE
+                    binding.password.setError("Password Should contain atleast 1 Capital letter")
+                }
+
+                val smallPattern = Pattern.compile("[a-z]")
+                if (!smallPattern.matcher(EnteredPassword).find()) {
+                    Log.d("Password Should contain atleast 1 small letter","Yes")
+                    progressbar.visibility=View.INVISIBLE
+                    binding.password.setError("Password Should contain atleast 1 small letter")
+                }
+
+                val symbolPattern = Pattern.compile("[!@#\$%^&*(),.?\":{}|<>]")
+                if (!symbolPattern.matcher(EnteredPassword).find()) {
+                    Log.d("Password Should contain atleast 1 symbol","Yes")
+                    progressbar.visibility=View.INVISIBLE
+                    binding.password.setError("Password Should contain atleast 1 symbol")
+                }
+
                 if(EnteredPassword!=EnteredConfirmPassword)
                 {
                     Log.d("Main password and confirm password is not same","$EnteredConfirmPassword != $EnteredPassword")
