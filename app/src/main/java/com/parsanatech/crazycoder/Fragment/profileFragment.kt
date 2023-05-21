@@ -64,7 +64,7 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
     val propertyListCf=ArrayList<profile_userinfo>()
     val propertyListCc=ArrayList<profile_userinfo>()
     val propertyListLc=ArrayList<profile_userinfo>()
-    val propertyListSj=ArrayList<profile_userinfo>()
+    val propertyListAt=ArrayList<profile_userinfo>()
     var userAdded=false
     var sameplatForm=false
     var lastAddedplatform=-1
@@ -72,7 +72,7 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
     var codeforcesUrl:String=""
     var codechefUrl:String=""
     var leetCodeUrl:String=""
-    var spojUrl:String=""
+    var atCoderUrl:String=""
 
 
     override fun onCreateView(
@@ -111,10 +111,10 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
         binding.userInfoRecyclerviwInprofile.adapter=infoAdapter
         binding.userInfoRecyclerviwInprofile.layoutManager=LinearLayoutManager(context)
 
+        platformListforApi.add("at_coder")
+        platformListforApi.add("code_chef")
         platformListforApi.add("codeforces")
-        platformListforApi.add("leetcode")
-        platformListforApi.add("spoj")
-        platformListforApi.add("codechef")
+        platformListforApi.add("leet_code")
 
         try {
             requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE) // if not touchable flag remains in leaderboard then clear it
@@ -125,30 +125,30 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
         }
 
         AssignValue()
-        leaderBoardItemSelected("codechef")
+        leaderBoardItemSelected("at_coder")
 
 
         binding.swipRefreshView.setOnRefreshListener {
 
-            if(currSelectedPlatform==0)
+            if(currSelectedPlatform==2)
             {
                 propertyListCf.clear()
                 leaderBoardItemSelected("codeforces")
             }
-            else if(currSelectedPlatform==1)
-            {
-                propertyListLc.clear()
-                leaderBoardItemSelected("leetcode")
-            }
-            else if(currSelectedPlatform==2)
-            {
-                propertyListSj.clear()
-                leaderBoardItemSelected("spoj")
-            }
             else if(currSelectedPlatform==3)
             {
-                propertyListSj.clear()
-                leaderBoardItemSelected("codechef")
+                propertyListLc.clear()
+                leaderBoardItemSelected("leet_code")
+            }
+            else if(currSelectedPlatform==0)
+            {
+                propertyListAt.clear()
+                leaderBoardItemSelected("at_coder")
+            }
+            else if(currSelectedPlatform==1)
+            {
+                propertyListCc.clear()
+                leaderBoardItemSelected("code_chef")
             }
             binding.swipRefreshView.isRefreshing=false
 
@@ -259,10 +259,22 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
             }
 
         }
-        binding.imageSj.setOnClickListener {
-            if(spojUrl!="")
+        binding.imageCc.setOnClickListener {
+
+            if(codechefUrl!="")
             {
-                val intent=Intent(Intent.ACTION_VIEW,Uri.parse(spojUrl))
+                val intent=Intent(Intent.ACTION_VIEW, Uri.parse(codechefUrl))
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(requireContext(),"Please Add Your Leetcode Handle",Toast.LENGTH_LONG).show()
+            }
+
+        }
+        binding.imageAt.setOnClickListener {
+            if(atCoderUrl!="")
+            {
+                val intent=Intent(Intent.ACTION_VIEW,Uri.parse(atCoderUrl))
                 startActivity(intent)
             }
             else{
@@ -328,13 +340,13 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                         {
                             finalUrl="https://codeforces.com/api/user.info?handles="+userHandle
                         }
-                        else if(selectedPlatform=="leetcode")
+                        else if(selectedPlatform=="leet_code")
                         {
-                            finalUrl="https://leetcode-stats-api.herokuapp.com/"+userHandle
+                            finalUrl="https://master--glittering-monstera-c8038d.netlify.app/ranking/leet_code/"+userHandle
                         }
                         else
                         {
-                            finalUrl = "https://competitive-coding-api.herokuapp.com/api/"+ selectedPlatform + "/" + userHandle
+                            finalUrl = "https://master--glittering-monstera-c8038d.netlify.app/ranking/"+ selectedPlatform + "/" + userHandle
                         }
 
                         val queue = Volley.newRequestQueue(context)
@@ -350,8 +362,8 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                                     userAdded=true
                                     addPlatformbinding.progressbar.visibility = View.INVISIBLE
                                     if (selectedPlatform == "codeforces") {
-                                        lastAddedplatform=0
-                                        if(currSelectedPlatform==0)sameplatForm=true
+                                        lastAddedplatform=2
+                                        if(currSelectedPlatform==2)sameplatForm=true
                                         codeforcesUrl="https://codeforces.com/profile/"+userHandle
                                         binding.shimmer.visibility=View.VISIBLE
                                         Log.d("codeforces : ","userAdded : $userAdded sameplatform $sameplatForm")
@@ -377,15 +389,15 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                                         }
 
                                     }
-                                    else if (selectedPlatform == "leetcode") {
-                                        lastAddedplatform=1
-                                        if(currSelectedPlatform==1)sameplatForm=true
+                                    else if (selectedPlatform == "leet_code") {
+                                        lastAddedplatform=3
+                                        if(currSelectedPlatform==3)sameplatForm=true
                                         leetCodeUrl="https://leetcode.com/"+userHandle
                                         binding.shimmer.visibility=View.VISIBLE
 //                                        binding.progressbar.visibility=View.VISIBLE
                                         try
                                         {
-                                            viewmodel.insertMyPlatform(MyPlatforms("leetcode", userHandle))
+                                            viewmodel.insertMyPlatform(MyPlatforms("leet_code", userHandle))
                                             viewmodel.FriendInsertLeetcode(FriendLeetcode(handle = userHandle, itsMe = true))
                                         }
                                         catch (e:Exception)
@@ -393,31 +405,31 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                                             Log.e("Exception in storing data at local database",e.toString())
                                         }
                                     }
-                                    else if (selectedPlatform == "spoj") {
-                                        lastAddedplatform=2
-                                        if(currSelectedPlatform==2)sameplatForm=true
-                                        spojUrl="https://www.spoj.com/users/"+userHandle
+                                    else if (selectedPlatform == "at_coder") {
+                                        lastAddedplatform=0
+                                        if(currSelectedPlatform==0)sameplatForm=true
+                                        atCoderUrl="https://atcoder.jp/users/"+userHandle
                                         binding.shimmer.visibility=View.VISIBLE
 //                                        binding.progressbar.visibility=View.VISIBL
                                         try
                                         {
-                                            viewmodel.insertMyPlatform(MyPlatforms("spoj", userHandle))
-                                            viewmodel.FriendInsertSpoj(FriendSpoj(handle = userHandle, itsMe = true))
+                                            viewmodel.insertMyPlatform(MyPlatforms("at_coder", userHandle))
+                                            viewmodel.FriendInsertAtcoder(FriendAtcoder(handle = userHandle, itsMe = true))
                                         }
                                         catch (e:Exception)
                                         {
                                             Log.e("Exception in storing data at local database",e.toString())
                                         }
                                     }
-                                    else if (selectedPlatform == "codechef") {
-                                        lastAddedplatform=3
-                                        if(currSelectedPlatform==3)sameplatForm=true
-                                        spojUrl="https://www.spoj.com/users/"+userHandle
+                                    else if (selectedPlatform == "code_chef") {
+                                        lastAddedplatform=1
+                                        if(currSelectedPlatform==1)sameplatForm=true
+                                        codechefUrl="https://www.codechef.com/users/"+userHandle
                                         binding.shimmer.visibility=View.VISIBLE
 //                                        binding.progressbar.visibility=View.VISIBL
                                         try
                                         {
-                                            viewmodel.insertMyPlatform(MyPlatforms("codechef", userHandle))
+                                            viewmodel.insertMyPlatform(MyPlatforms("code_chef", userHandle))
                                             viewmodel.FriendInsertCodechef(FriendCodechef(handle = userHandle, itsMe = true))
                                         }
                                         catch (e:Exception)
@@ -503,26 +515,26 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
         {
             userAdded=false
             sameplatForm=false
-            currSelectedPlatform=0
-        }
-        else if(platform=="leetcode")
-        {
-            userAdded=false
-            sameplatForm=false
-            currSelectedPlatform=1
-        }
-        else if(platform=="spoj"){
-            userAdded=false
-            sameplatForm=false
             currSelectedPlatform=2
         }
-        else if(platform=="codechef"){
+        else if(platform=="leet_code")
+        {
             userAdded=false
             sameplatForm=false
             currSelectedPlatform=3
         }
+        else if(platform=="at_coder"){
+            userAdded=false
+            sameplatForm=false
+            currSelectedPlatform=0
+        }
+        else if(platform=="code_chef"){
+            userAdded=false
+            sameplatForm=false
+            currSelectedPlatform=1
+        }
         Log.d("CurrPlatForm = ","$currSelectedPlatform  $platform" )
-        if((currSelectedPlatform==0&&propertyListCf.isEmpty())||(currSelectedPlatform==1&&propertyListLc.isEmpty())||(currSelectedPlatform==2&&propertyListSj.isEmpty())||(currSelectedPlatform==3&&propertyListCc.isEmpty()))
+        if((currSelectedPlatform==2&&propertyListCf.isEmpty())||(currSelectedPlatform==3&&propertyListLc.isEmpty())||(currSelectedPlatform==0&&propertyListAt.isEmpty())||(currSelectedPlatform==1&&propertyListCc.isEmpty()))
         {
 
             try {
@@ -535,9 +547,9 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                         userAdded=false
                         sameplatForm=false
                         list?.let {
-                            if(currSelectedPlatform==0) propertyListCf.clear()
-                            else if(currSelectedPlatform==1)propertyListLc.clear()
-                            else if(currSelectedPlatform==2)propertyListSj.clear()
+                            if(currSelectedPlatform==2) propertyListCf.clear()
+                            else if(currSelectedPlatform==3)propertyListLc.clear()
+                            else if(currSelectedPlatform==0)propertyListAt.clear()
                             else propertyListCc.clear()
                             var handle:String=""
                             it.forEach {
@@ -546,15 +558,15 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                                 {
                                     codeforcesUrl="https://codeforces.com/profile/"+it.handle
                                 }
-                                if(it.platform=="leetcode"&&it.handle!=null)
+                                if(it.platform=="leet_code"&&it.handle!=null)
                                 {
                                     leetCodeUrl="https://leetcode.com/"+it.handle
                                 }
-                                if(it.platform=="spoj"&&it.handle!=null)
+                                if(it.platform=="at_coder"&&it.handle!=null)
                                 {
-                                    spojUrl="https://www.spoj.com/users/"+it.handle
+                                    atCoderUrl="https://atcoder.jp/users/"+it.handle
                                 }
-                                if(it.platform=="codechef"&&it.handle!=null)
+                                if(it.platform=="code_chef"&&it.handle!=null)
                                 {
                                     codechefUrl="https://www.codechef.com/users/"+it.handle
                                 }
@@ -585,16 +597,16 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                                 {
                                     url="https://codeforces.com/api/user.info?handles="+handle
                                 }
-                                else if(platform=="leetcode")
+                                else if(platform=="leet_code")
                                 {
-                                    url="https://leetcode-stats-api.herokuapp.com/"+handle
+                                    url="https://master--glittering-monstera-c8038d.netlify.app/ranking/leet_code/"+handle
                                 }
-                                else if(platform=="codechef")
+                                else if(platform=="code_chef")
                                 {
-                                    url = "https://competitive-coding-api.herokuapp.com/api/codechef"+"/" + handle
+                                    url = "https://master--glittering-monstera-c8038d.netlify.app/ranking/code_chef"+"/" + handle
                                 }
                                 else{
-                                    url = "https://competitive-coding-api.herokuapp.com/api/spoj"+"/" + handle
+                                    url = "https://master--glittering-monstera-c8038d.netlify.app/ranking/at_coder"+"/" + handle
                                 }
                                 Log.d("built url",url)
                                 makeVolleyRequest(url,platform)
@@ -604,10 +616,10 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                         }
                     }else
                     {
-                        if(lastAddedplatform==0)propertyListCf.clear()
-                        if(lastAddedplatform==1)propertyListLc.clear()
-                        if(lastAddedplatform==2)propertyListSj.clear()
-                        if(lastAddedplatform==3)propertyListCc.clear()
+                        if(lastAddedplatform==2)propertyListCf.clear()
+                        if(lastAddedplatform==3)propertyListLc.clear()
+                        if(lastAddedplatform==0)propertyListAt.clear()
+                        if(lastAddedplatform==1)propertyListCc.clear()
                         binding.shimmer.visibility=View.GONE
                     }
 
@@ -621,10 +633,10 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
         }
         else{
             try {
-                if(currSelectedPlatform==0)infoAdapter.dataupdated(propertyListCf)
-                else if(currSelectedPlatform==1)infoAdapter.dataupdated(propertyListLc)
-                else if(currSelectedPlatform==2)infoAdapter.dataupdated(propertyListSj)
-                else if(currSelectedPlatform==3)infoAdapter.dataupdated(propertyListCc)
+                if(currSelectedPlatform==2)infoAdapter.dataupdated(propertyListCf)
+                else if(currSelectedPlatform==3)infoAdapter.dataupdated(propertyListLc)
+                else if(currSelectedPlatform==0)infoAdapter.dataupdated(propertyListAt)
+                else if(currSelectedPlatform==1)infoAdapter.dataupdated(propertyListCc)
                 binding.shimmer.visibility=View.GONE
             }
             catch (e:Exception)
@@ -683,7 +695,7 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
     {
         Log.d("In SupplyDataToAdapter Fun","Yes currselectedPlatform ${currSelectedPlatform} obj : $obj")
         try {
-            if(currSelectedPlatform==0&&platform=="codeforces")
+            if(currSelectedPlatform==2&&platform=="codeforces")
             {
                 try {
                     val jsonArray=obj.getJSONArray("result")
@@ -702,17 +714,17 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
 
 
             }
-            else if(currSelectedPlatform==1&&platform=="leetcode")
+            else if(currSelectedPlatform==3&&platform=="leet_code")
             {
 
                 try {
                     propertyListLc.add(profile_userinfo("Total Solved Question",obj.getString("totalSolved").toString()))
-                    propertyListLc.add(profile_userinfo("Easy Question",obj.getString("easySolved").toString()))
-                    propertyListLc.add(profile_userinfo("Medium Question",obj.getString("mediumSolved").toString()))
-                    propertyListLc.add(profile_userinfo("Hard Question",obj.getString("hardSolved").toString()))
-                    propertyListLc.add(profile_userinfo("Acceptance Rate",obj.getString("acceptanceRate").toString()))
-                    propertyListLc.add(profile_userinfo("Ranking",obj.getString("ranking").toString()))
-                    propertyListLc.add(profile_userinfo("Contribution Points",obj.getString("contributionPoints").toString()))
+//                    propertyListLc.add(profile_userinfo("Easy Question",obj.getString("easySolved").toString()))
+//                    propertyListLc.add(profile_userinfo("Medium Question",obj.getString("mediumSolved").toString()))
+//                    propertyListLc.add(profile_userinfo("Hard Question",obj.getString("hardSolved").toString()))
+//                    propertyListLc.add(profile_userinfo("Acceptance Rate",obj.getString("acceptanceRate").toString()))
+//                    propertyListLc.add(profile_userinfo("Ranking",obj.getString("ranking").toString()))
+//                    propertyListLc.add(profile_userinfo("Contribution Points",obj.getString("contributionPoints").toString()))
                     binding.shimmer.visibility=View.GONE
                     infoAdapter.dataupdated(propertyListLc)
                 }
@@ -721,14 +733,16 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                         e.toString())
                 }
             }
-            else if(currSelectedPlatform==2&&platform=="spoj")
+            else if(currSelectedPlatform==0&&platform=="at_coder")
             {
 
                 try {
-                    propertyListSj.add(profile_userinfo("Points",obj.getString("points").toString()))
-                    propertyListSj.add(profile_userinfo("Rank",obj.getString("rank").toString()))
+//                    propertyListAt.add(profile_userinfo("Points",obj.getString("points").toString()))
+                    var rating="0";
+                    if(obj.getString("rating")!="")rating=obj.getString("rating").toString()
+                    propertyListAt.add(profile_userinfo("Rating",rating))
                     binding.shimmer.visibility=View.GONE
-                    infoAdapter.dataupdated(propertyListSj)
+                    infoAdapter.dataupdated(propertyListAt)
                 }
                 catch (e:Exception)
                 {
@@ -736,15 +750,15 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
                 }
 
             }
-            else if(currSelectedPlatform==3&&platform=="codechef")
+            else if(currSelectedPlatform==1&&platform=="code_chef")
             {
                 val unicode:Int = 0x2B50
                         try {
                     propertyListCc.add(profile_userinfo("Rating",obj.getString("rating").toString()))
-                    propertyListCc.add(profile_userinfo("Max Rating",obj.getString("highest_rating").toString()))
+//                    propertyListCc.add(profile_userinfo("Max Rating",obj.getString("highest_rating").toString()))
                     propertyListCc.add(profile_userinfo("Star",(obj.getString("stars").toString().get(0)+" ${getEmojiByUnicode(unicode)}").toString()))
-                    propertyListCc.add(profile_userinfo("Global Rank",obj.getString("global_rank").toString()))
-                    propertyListCc.add(profile_userinfo("Country Rank",obj.getString("country_rank").toString()))
+//                    propertyListCc.add(profile_userinfo("Global Rank",obj.getString("global_rank").toString()))
+//                    propertyListCc.add(profile_userinfo("Country Rank",obj.getString("country_rank").toString()))
                     binding.shimmer.visibility=View.GONE
                     infoAdapter.dataupdated(propertyListCc)
                 }
