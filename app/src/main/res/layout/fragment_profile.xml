@@ -7,7 +7,7 @@
     android:background="@color/darkBG"
     android:gravity="center_horizontal"
     android:id="@+id/swipRefreshView"
-    tools:context=".Fragment.profileFragment">
+    tools:context=".fragment.profileFragment">
 
 
     <LinearLayout

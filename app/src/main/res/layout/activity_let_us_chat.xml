@@ -7,7 +7,7 @@
     android:background="@color/darkBG"
     android:orientation="vertical"
     android:windowSoftInputMode="adjustPan"
-    tools:context=".LetUsChatActivity">
+    tools:context=".activity.LetUsChatActivity">
 
 
     <com.facebook.shimmer.ShimmerFrameLayout

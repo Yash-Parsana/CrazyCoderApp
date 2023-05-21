@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/dialog_background"
-    tools:context=".AddFriendActivity">
+    tools:context=".activity.AddFriendActivity">
 
     <ProgressBar
         android:id="@+id/progressbar"
