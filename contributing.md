@@ -18,6 +18,8 @@
 4. If issues are not completed within given duration, it will be assigned to other contributor.
 5. Raising a PR **without an issue** will be considered as null.
 6. You must add a video of your changes that you made in the app in your PR.
+7. Create a **new branch** for the changes you want to make in this project & **delete it** after your PR gets merged.
+8. Mention the **relevant issue no.** in your PR, so to avoid any confusions.
 
 ## Resources 
 
