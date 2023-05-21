@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/dialog_background"
-    tools:context=".AddPlatformActivity">
+    tools:context=".activity.AddPlatformActivity">
 
     <ProgressBar
         android:id="@+id/progressbar"

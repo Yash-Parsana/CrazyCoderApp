@@ -34,39 +34,39 @@
 
 
         <activity
-            android:name=".AddPlatformActivity"
+            android:name=".activity.AddPlatformActivity"
             android:exported="false" />
         <activity
-            android:name=".LetUsChatActivity"
+            android:name=".activity.LetUsChatActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PasswordResetActivity"
+            android:name=".authentication.PasswordResetActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".wrongEmailsignup"
+            android:name=".authentication.wrongEmailsignup"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".EmailVarificationSignUp"
+            android:name=".authentication.EmailVarificationSignUp"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignIn"
+            android:name=".authentication.SignIn"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AddFriendActivity"
+            android:name=".activity.AddFriendActivity"
             android:excludeFromRecents="true"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignUp"
+            android:name=".authentication.SignUp"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activity.SplashScreenActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
@@ -77,7 +77,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
@@ -86,7 +86,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name=".services.MyFirebaseMessagingService"
             android:exported="false"
             tools:ignore="Instantiatable">
             <intent-filter>

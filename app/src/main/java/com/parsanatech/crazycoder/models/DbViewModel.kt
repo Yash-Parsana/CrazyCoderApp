@@ -4,8 +4,13 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.parsanatech.crazycoder.*
-import com.parsanatech.crazycoder.Repository.DbRepository
+import com.parsanatech.crazycoder.database.MyDatabase
+import com.parsanatech.crazycoder.entity.FriendCodechef
+import com.parsanatech.crazycoder.entity.FriendCodeforces
+import com.parsanatech.crazycoder.entity.FriendLeetcode
+import com.parsanatech.crazycoder.entity.FriendSpoj
+import com.parsanatech.crazycoder.entity.MyPlatforms
+import com.parsanatech.crazycoder.repository.DbRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -21,7 +26,7 @@ class DbViewModel(application:Application):AndroidViewModel(application) {
 
     init {
 
-        val dao=MyDatabase.getDatabase(application).getDao()
+        val dao= MyDatabase.getDatabase(application).getDao()
 
         repository= DbRepository(dao)
 
@@ -33,46 +38,46 @@ class DbViewModel(application:Application):AndroidViewModel(application) {
 
     }
 
-    fun FriendInsertCodeforces(obj:FriendCodeforces)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendInsertCodeforces(obj: FriendCodeforces)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendInsertCodeforces(obj)
     }
-    fun FriendInsertLeetcode(obj:FriendLeetcode)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendInsertLeetcode(obj: FriendLeetcode)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendInsertLeetcode(obj)
     }
-    fun FriendInsertSpoj(obj:FriendSpoj)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendInsertSpoj(obj: FriendSpoj)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendInsertSpoj(obj)
     }
-    fun FriendInsertCodechef(obj:FriendCodechef)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendInsertCodechef(obj: FriendCodechef)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendInsertCodechef(obj)
     }
 
 
-    fun FriendDeleteCodeforces(obj:FriendCodeforces)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendDeleteCodeforces(obj: FriendCodeforces)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendDeleteCodeforces(obj)
     }
 
-    fun FriendDeleteLeetcode(obj:FriendLeetcode)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendDeleteLeetcode(obj: FriendLeetcode)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendDeleteLeetcode(obj)
     }
 
-    fun FriendDeleteSpoj(obj:FriendSpoj)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendDeleteSpoj(obj: FriendSpoj)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendDeleteSpoj(obj)
     }
-    fun FriendDeleteCodechef(obj:FriendCodechef)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendDeleteCodechef(obj: FriendCodechef)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendDeleteCodechef(obj)
     }
 
 
 
-    fun insertMyPlatform(obj:MyPlatforms)=viewModelScope.launch(Dispatchers.IO)
+    fun insertMyPlatform(obj: MyPlatforms)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.InsertMyPlatform(obj)
     }

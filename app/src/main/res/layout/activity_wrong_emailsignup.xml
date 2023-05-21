@@ -8,7 +8,7 @@
     android:background="@drawable/dialog_background"
     android:padding="20dp"
     android:gravity="center"
-    tools:context=".wrongEmailsignup">
+    tools:context=".authentication.wrongEmailsignup">
 
 
     <ImageView
