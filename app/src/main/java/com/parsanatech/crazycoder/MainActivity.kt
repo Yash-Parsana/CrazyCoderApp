@@ -158,6 +158,7 @@ class MainActivity : AppCompatActivity() {
         inProgressUpdate()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         super.onBackPressed()
 
