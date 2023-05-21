@@ -1,5 +1,5 @@
  <p align="center">
- <img src="https://github.com/Yash-Parsana/CrazyCoderApp/assets/77839976/d9197945-46b2-4fe1-893b-a6bfe8f3477b" height= 290 width = 500 />
+ <img src="https://github.com/Yash-Parsana/CrazyCoderApp/assets/77839976/d9197945-46b2-4fe1-893b-a6bfe8f3477b" height= 500 width = 500 />
 </p>
 
 # CrazyCoder
