@@ -101,7 +101,20 @@
                     android:gravity="center"
                     android:layout_marginBottom="20dp"
                     >
-
+                    <ImageView
+                        android:id="@+id/imageAt"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/atcoder"
+                        android:layout_marginHorizontal="8dp"
+                        />
+                    <ImageView
+                        android:id="@+id/imageCc"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/codechef"
+                        android:layout_marginHorizontal="8dp"
+                        />
                     <ImageView
                         android:id="@+id/imageCf"
                         android:layout_width="25dp"
@@ -113,17 +126,11 @@
                         android:id="@+id/imageLc"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/leetcode"
+                        android:src="@drawable/ic_leetcode"
                         android:layout_marginHorizontal="8dp"
 
                         />
-                    <ImageView
-                        android:id="@+id/imageSj"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/spoj"
-                        android:layout_marginHorizontal="8dp"
-                        />
+
 
                 </LinearLayout>
 

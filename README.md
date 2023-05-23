@@ -2,7 +2,26 @@
  <img src="https://github.com/Yash-Parsana/CrazyCoderApp/assets/77839976/d9197945-46b2-4fe1-893b-a6bfe8f3477b" height= 500 width = 500 />
 </p>
 
+
 # CrazyCoder
+
+
+
+<div align="center">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+<img src="https://forthebadge.com/images/badges/uses-brains.svg" />
+<img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
+ <br>
+ <img src="https://img.shields.io/github/repo-size/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/issues/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/issues-closed-raw/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/issues-pr/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/issues-pr-closed-raw/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/forks/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/stars/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/contributors/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ <img src="https://img.shields.io/github/last-commit/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
+ </div>
 
 
 Competitive programming (CP) a large growing community is very well known for algorithms, data structures and Mathematics, and is a must have skill for any computer science student or top tech companies job aspirant.<br>

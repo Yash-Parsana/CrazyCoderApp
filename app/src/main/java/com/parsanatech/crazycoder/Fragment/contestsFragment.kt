@@ -25,6 +25,7 @@ import org.json.JSONObject
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.log
 
 
 class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
@@ -97,12 +98,13 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
             try {
                 val currobj: JSONObject = mcontestJsonList.get(i)
 
+                Log.d("status : ","${currobj.getString("start_time")}  ${currobj.getString("end_time")}")
 
                 if (status && currobj.getString("status") == "ongoing") {
 
                     Log.d("Status","Coding")
 
-                    if (lastSelectedPlatform != "code_chef") {
+ /*                   if (lastSelectedPlatform != "code_chef") {
                         Log.d("platform","Codechef")
                         try {
                             val startTime = TimeFormate(currobj.getString("start_time"))
@@ -168,13 +170,21 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
                         {
                             Log.e("Exception while Time formating",e.toString())
                         }
-                    }
+                    } */
+                    val startTime = TimeFormate(currobj.getString("start_time")).toString()
+                    val endTime = TimeFormate(currobj.getString("end_time")).toString()
+
+
+                    val name = currobj.getString("name").toString()
+                    val contest = contestModel(name, startTime, endTime,currobj.getString("start_time").toLong())
+                    Log.d("mycontest: ",contest.toString())
+                    contestList.add(contest)
 
 
                 } else if (!status && currobj.getString("status") == "upcoming") {
 
                     Log.d("status","upcoming")
-                    if (lastSelectedPlatform != "code_chef") {
+  /*                  if (lastSelectedPlatform != "code_chef") {
                         Log.d("Platform","Codechef")
                         try {
                             val startTime = TimeFormate(currobj.getString("start_time"))
@@ -245,16 +255,20 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
                         }
 
 
-                    }
+                    }*/
+                    val startTime = TimeFormate(currobj.getString("start_time").toString())
+                    val endTime = TimeFormate(currobj.getString("end_time").toString())
 
+                    val name = currobj.getString("name").toString()
+                    val contest = contestModel(name, startTime, endTime,currobj.getString("start_time").toLong())
+                    Log.d("mycontest: ",contest.toString())
+                    contestList.add(contest)
                 }
             }
             catch (e:Exception)
             {
                 Log.e("Exception in statuschanged fun",e.toString())
             }
-
-
 
         }
 
@@ -293,17 +307,17 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
 
         mcontestJsonList.clear()
 
-        val baseurl="https://crazycoder.onrender.com/"
+        val baseurl="https://master--glittering-monstera-c8038d.netlify.app/schedule/"
 
         val contestList=ArrayList<contestModel>()
 
         val finalurl=baseurl+platform
-
+        Log.d("FinalURL ",finalurl)
         val queue = Volley.newRequestQueue(context)
-
+        Log.d("makingRequest","Yes")
         val jsonArrayobj=JsonArrayRequest(Request.Method.GET,finalurl,null,{ response->
 
-
+            Log.d("Response got Length : ",response.length().toString())
             for(i in 0 until response.length())
             {
                 try {
@@ -314,7 +328,7 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
                     if(status&&currobj.getString("status")=="ongoing")
                     {
 
-                        if(platform!="code_chef")
+/*                        if(platform!="code_chef")
                         {
                             try {
                                 val startTime=TimeFormate(currobj.getString("start_time"))
@@ -379,14 +393,27 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
                                 Log.e("Exception while Time formating",e.toString())
                             }
 
-                        }
+                        } */
+                        try{
+                            val startTime = TimeFormate(currobj.getString("start_time").toString())
+                            val endTime = TimeFormate(currobj.getString("end_time").toString())
 
+
+                            val name = currobj.getString("name").toString()
+                            val contest = contestModel(name, startTime, endTime,currobj.getString("start_time").toLong())
+                            Log.d("mycontest: ",contest.toString())
+                            contestList.add(contest)
+                        }
+                        catch(e:Exception)
+                        {
+                            Log.e("Exception while processing data in contest page at line ${e.getStackTrace()[0].getLineNumber()} : ",e.toString())
+                        }
 
                     }
                     else if(!status&&currobj.getString("status")=="upcoming")
                     {
-
-                        if(platform!="code_chef")
+                        Log.d("Temp...","in upcoming")
+/*                        if(platform!="code_chef")
                         {
                             try
                             {
@@ -451,6 +478,21 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
                             {
                                 Log.e("Exception while Time formating",e.toString())
                             }
+                        } */
+
+                        //TimeStamp to Date & Time :
+                        try{
+                            val startTime = TimeFormate(currobj.getString("start_time").toString())
+                            val endTime = TimeFormate(currobj.getString("end_time").toString())
+//
+                            val name = currobj.getString("name").toString()
+                            val contest = contestModel(name, startTime, endTime,currobj.getString("start_time").toLong())
+                            Log.d("mycontest: ",contest.toString())
+                            contestList.add(contest)
+                        }
+                        catch(e:Exception)
+                        {
+                            Log.e("Exception while processing data in contest page at line ${e.getStackTrace()[0].getLineNumber()} : ",e.toString())
                         }
 
                     }
@@ -533,15 +575,31 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
 //            Log.e("Exception in TimeFormat Fun",e.toString())
 //        }
         try{
-            val timeStamp=string.toLong()
+//            val timeStamp=string.toLong()
+//
+//            val time=SimpleDateFormat("hh:mm a").format(timeStamp)
+//            val date=SimpleDateFormat("dd/MM/yyyy").format(timeStamp)
+//            finaltime=(date+"\n"+time).toString()
 
-            val time=SimpleDateFormat("hh:mm a").format(timeStamp)
-            val date=SimpleDateFormat("dd/MM/yyyy").format(timeStamp)
-            finaltime=(date+"\n"+time).toString()
+
+
+            val cal:Calendar = Calendar.getInstance();
+            val tz:TimeZone = cal.getTimeZone();
+
+            /* debug: is it local time? */
+            Log.d("Time zone: ", tz.getDisplayName());
+
+            /* date formatter in local timezone */
+            val sdf:SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy hh:mm a");
+            sdf.setTimeZone(tz);
+
+            /* print your timestamp and double check it's the date you expect */
+            val timestamp = string.toLong()
+            finaltime = sdf.format(Date(timestamp)); // I assume your timestamp is in seconds and you're converting to milliseconds?
 
         }
         catch(e:Exception){
-
+            
         }
         return finaltime
 

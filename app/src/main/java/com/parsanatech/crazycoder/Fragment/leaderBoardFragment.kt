@@ -46,12 +46,12 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
     var userCodechefList=ArrayList<FriendCodechef>()
     val userCodeforcesList=ArrayList<FriendCodeforces>()
     val userLeetcodeList=ArrayList<FriendLeetcode>()
-    val userSpojList=ArrayList<FriendSpoj>()
+    val userAtcoderList=ArrayList<FriendAtcoder>()
     val ranklistCc=ArrayList<LeaderBoardRankers>()
     val rankersCf=ArrayList<LeaderBoardRankers>()
     val rankersCc=ArrayList<LeaderBoardRankers>()
     val rankersLc=ArrayList<LeaderBoardRankers>()
-    val rankersSj=ArrayList<LeaderBoardRankers>()
+    val rankersAt=ArrayList<LeaderBoardRankers>()
 
     var requestsDone=0
     var currPlatform=3
@@ -60,11 +60,11 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
     var CchandleAddinginBg=false
     var CfhandleAddedinBg=false
     var LchandleAddedinBg=false
-    var SjhandleAddedinBg=false
+    var AthandleAddedinBg=false
     var fragmenyActive=true
     var LoggedInUserCfHandle=""
     var LoggedInUserLcHandle=""
-    var LoggedInUserSjHandle=""
+    var LoggedInUserAtHandle=""
     var LoggedInUserCcHandle=""
 
 
@@ -74,10 +74,10 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
     ): View? {
 
         val platformListforApi = ArrayList<String>()
+        platformListforApi.add("at_coder")
+        platformListforApi.add("code_chef")
         platformListforApi.add("codeforces")
-        platformListforApi.add("leetcode")
-        platformListforApi.add("spoj")
-        platformListforApi.add("codechef")
+        platformListforApi.add("leet_code")
 
         Log.d("CreatingView","Yes")
 
@@ -106,7 +106,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
         }
 
 
-        leaderBoardItemSelected("codechef")
+        leaderBoardItemSelected("at_coder")
 
 
         fragmenyActive=true
@@ -115,28 +115,28 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
             if(currPlatform==0)
             {
-                userCodeforcesList.clear()
-                rankersCf.clear()
-                leaderBoardItemSelected("codeforces")
+                userAtcoderList.clear()
+                rankersAt.clear()
+                leaderBoardItemSelected("at_coder")
             }
             else if(currPlatform==1)
             {
-                userLeetcodeList.clear()
-                rankersLc.clear()
-                leaderBoardItemSelected("leetcode")
+                userCodechefList.clear()
+                rankersCc.clear()
+                leaderBoardItemSelected("code_chef")
 
             }
             else if(currPlatform==2)
             {
-                userSpojList.clear()
-                rankersSj.clear()
-                leaderBoardItemSelected("spoj")
+                userCodeforcesList.clear()
+                rankersCf.clear()
+                leaderBoardItemSelected("codeforces")
             }
             else if(currPlatform==3)
             {
-                userCodechefList.clear()
-                ranklistCc.clear()
-                leaderBoardItemSelected("codechef")
+                userLeetcodeList.clear()
+                rankersLc.clear()
+                leaderBoardItemSelected("leet_code")
             }
             binding.shimmer.visibility=View.VISIBLE
             binding.swaprefresh.isRefreshing=false
@@ -196,21 +196,21 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                         addFriendbinding.userhandle.setError("Please Enter Handle")
                         addFriendbinding.progressbar.visibility = View.INVISIBLE
                     } else {
-
+                        Log.d("selectedPlatform",selectedPlatform)
                         var finalUrl:String
                         if(selectedPlatform=="codeforces")
                         {
                             finalUrl="https://codeforces.com/api/user.info?handles="+userHandle
                         }
-                        else if(selectedPlatform=="leetcode")
+                        else if(selectedPlatform=="leet_code")
                         {
-                            finalUrl="https://leetcode-stats-api.herokuapp.com/"+userHandle
+                            finalUrl="https://master--glittering-monstera-c8038d.netlify.app/ranking/leet_code/"+userHandle
                         }
                         else
                         {
-                            finalUrl = "https://competitive-coding-api.herokuapp.com/api/"+ selectedPlatform + "/" + userHandle
+                            finalUrl = "https://master--glittering-monstera-c8038d.netlify.app/ranking/"+ selectedPlatform + "/" + userHandle
                         }
-
+                        Log.d("Final url in addFriend ",finalUrl)
                         val queue = Volley.newRequestQueue(context)
 
                         val jsonObject =
@@ -220,10 +220,10 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
                                 if (response.has("status")&&response.getString("status").lowercase() == "success"||response.getString("status") == "OK") {
 
-                                    Log.d("Status success or ok","Yse")
+                                    Log.d("Status success or ok",response.getString("status").toString())
 
                                     addFriendbinding.progressbar.visibility = View.INVISIBLE
-                                    if (selectedPlatform == "codeforces") {
+                                    if (selectedPlatform == "at_coder") {
                                         adduserRequest=true
                                         if(currPlatform==0)
                                         {
@@ -233,7 +233,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                         }
 
                                         try {
-                                            viewmodel.FriendInsertCodeforces(FriendCodeforces(handle = userHandle, itsMe = false))
+                                            viewmodel.FriendInsertAtcoder(FriendAtcoder(handle = userHandle, itsMe = false))
 
                                         }
                                         catch (e:Exception)
@@ -245,7 +245,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
                                         Log.d("Inserted","Yes")
                                     }
-                                    else if (selectedPlatform == "leetcode") {
+                                    else if (selectedPlatform == "code_chef") {
                                         adduserRequest=true
                                         if(currPlatform==1)
                                         {
@@ -254,7 +254,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                             binding.progressbar.visibility=View.VISIBLE
                                         }
                                         try {
-                                            viewmodel.FriendInsertLeetcode(FriendLeetcode(handle = userHandle, itsMe = false))
+                                            viewmodel.FriendInsertCodechef(FriendCodechef(handle = userHandle, itsMe = false))
 
                                         }
                                         catch (e:Exception)
@@ -264,7 +264,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
 
                                     }
-                                    else if (selectedPlatform == "spoj") {
+                                    else if (selectedPlatform == "codeforces") {
                                         adduserRequest=true
 
                                         if(currPlatform==2)
@@ -274,7 +274,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                             binding.progressbar.visibility=View.VISIBLE
                                         }
                                         try {
-                                            viewmodel.FriendInsertSpoj(FriendSpoj(handle = userHandle, itsMe = false))
+                                            viewmodel.FriendInsertCodeforces(FriendCodeforces(handle = userHandle, itsMe = false))
                                         }
                                         catch (e:Exception)
                                         {
@@ -282,7 +282,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                         }
 
                                     }
-                                    else if(selectedPlatform=="codechef")
+                                    else if(selectedPlatform=="leet_code")
                                     {
                                         adduserRequest=true
 
@@ -293,7 +293,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                             binding.progressbar.visibility=View.VISIBLE
                                         }
                                         try {
-                                            viewmodel.FriendInsertCodechef(FriendCodechef(handle = userHandle, itsMe = false))
+                                            viewmodel.FriendInsertLeetcode(FriendLeetcode(handle = userHandle, itsMe = false))
                                         }
                                         catch (e:Exception)
                                         {
@@ -365,9 +365,9 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
             Log.e("Exception while Loacking screen in leaderBoardIteamSelected Fun",e.toString())
         }
 
-        if(platform=="codechef")
+        if(platform=="code_chef")
         {
-            currPlatform=3
+            currPlatform=1
             adduserRequest=false
             standAtSamePlatform=false
 
@@ -458,7 +458,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
         }
         else if (platform == "codeforces") {
-            currPlatform=0
+            currPlatform=2
             adduserRequest=false
             standAtSamePlatform=false
 
@@ -549,8 +549,8 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
             }
 
         }
-        else if (platform == "leetcode") {
-            currPlatform=1
+        else if (platform == "leet_code") {
+            currPlatform=3
             adduserRequest=false
             standAtSamePlatform=false
 
@@ -565,7 +565,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
             }
             catch (e:Exception)
             {
-                Log.e("Exception while changing content of Ui in codeforces",e.toString())
+                Log.e("Exception while changing content of Ui in leetcode",e.toString())
             }
 
             if(userLeetcodeList.isEmpty()||LchandleAddedinBg)
@@ -587,7 +587,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                 rankersLc.clear()
 
                                 userLeetcodeList.addAll(it)
-                                Log.d("Totaluser indatabase : ${Thread.currentThread().name}",
+                                Log.d("Totaluser indatabase LeetCode: ${Thread.currentThread().name}",
                                     it.size.toString())
                             }
                             if (userLeetcodeList.isEmpty()) {
@@ -637,9 +637,9 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
 
         }
-        else if (platform == "spoj") {
+        else if (platform == "at_coder") {
 
-            currPlatform=2
+            currPlatform=0
             adduserRequest=false
             standAtSamePlatform=false
 
@@ -648,41 +648,44 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                 params.weight=2F
                 binding.judgingCriteria.layoutParams=params
                 binding.judgingCriteria.setTextSize(15F)
-                binding.judgingCriteria.text="Rank"
+                binding.judgingCriteria.text="Rating"
             }
             catch (e:Exception)
             {
-                Log.e("Exception while changing content of Ui in codeforces",e.toString())
+                Log.e("Exception while changing content of Ui in Atcoder",e.toString())
             }
 
-            Log.d("FunctionCalled for spoj","Yes")
-            if(userSpojList.isEmpty()||SjhandleAddedinBg)
+            Log.d("FunctionCalled for Atcoder","Yes")
+            if(userAtcoderList.isEmpty()||AthandleAddedinBg)
             {
+                Log.d("Inside if","Yes")
                 try {
-                    SjhandleAddedinBg=false
-                    viewmodel.FriendSpojHandles.observe(requireActivity(), Observer { list ->
+                    AthandleAddedinBg=false
+                    viewmodel.FriendAtcoderHandles.observe(requireActivity(), Observer { list ->
+                        Log.d("Inside observer","Yes")
+                        Log.d("Flags"," adduserRequest : ${adduserRequest} , standAtSamePlatform : ${standAtSamePlatform}")
 
                         if(((adduserRequest&&standAtSamePlatform)||!adduserRequest)&&fragmenyActive) //it checks added user platform and current platform is same to avoid unnessery reading of data from room database fragmeyactive prevent call if handle added through profile fragment
                         {
-                            Log.d("Flags"," adduserRequest : ${adduserRequest} , standAtSamePlatform : ${standAtSamePlatform}")
+                            //Log.d("Flags"," adduserRequest : ${adduserRequest} , standAtSamePlatform : ${standAtSamePlatform}")
                             adduserRequest=false
                             standAtSamePlatform=false
                             list?.let {
-                                userSpojList.clear()
-                                rankersSj.clear()
+                                userAtcoderList.clear()
+                                rankersAt.clear()
 
-                                Log.d("Sizes","spoj it : ${it.size}")
+                                Log.d("Sizes","Atcoder it : ${it.size}")
 
-                                userSpojList.addAll(it)
+                                userAtcoderList.addAll(it)
                             }
-                            if(userSpojList.isEmpty())
+                            if(userAtcoderList.isEmpty())
                             {
                                 binding.shimmer.visibility=View.GONE
                                 binding.progressbar.visibility=View.INVISIBLE
-                                rankersSj.add(LeaderBoardRankers("-",0,false))
+                                rankersAt.add(LeaderBoardRankers("-",0,false))
 
                                 try {
-                                    ranklistAdapter.updateData(rankersSj)
+                                    ranklistAdapter.updateData(rankersAt)
                                 }
                                 catch (e:Exception)
                                 {
@@ -691,12 +694,12 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                 requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
                             }
-                            requestsDone=userSpojList.size
+                            requestsDone=userAtcoderList.size
                             renderUser(platform)
                         }
                         else
                         {
-                            SjhandleAddedinBg=true
+                            AthandleAddedinBg=true
 
                         }
 
@@ -713,10 +716,10 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
             else{
                 binding.shimmer.visibility=View.GONE
                 binding.progressbar.visibility=View.INVISIBLE
-
+                Log.d("In else Part","Yes")
                 try {
                     requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                    ranklistAdapter.updateData(rankersSj)
+                    ranklistAdapter.updateData(rankersAt)
                 }
                 catch (e:Exception)
                 {
@@ -751,37 +754,38 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                             urlCf+=handle
                         }
                     }
-                    makeVolleyRequest(0,"",urlCf)
+                    makeVolleyRequest(2,"",urlCf)
 
                 }
-                else if(platform=="leetcode")
+                else if(platform=="leet_code")
                 {
-                    val LCurl="https://leetcode-stats-api.herokuapp.com/"
+                    val LCurl="https://master--glittering-monstera-c8038d.netlify.app/ranking/leet_code/"
                     for(i in 0 until userLeetcodeList.size)
                     {
                         if(userLeetcodeList[i].itsMe==true) LoggedInUserLcHandle=userLeetcodeList[i].handle
                         val handle:String=userLeetcodeList.get(i).handle
-                        makeVolleyRequest(1,handle,LCurl+handle)
+                        makeVolleyRequest(3,handle,LCurl+handle)
                     }
                 }
-                else if(platform=="spoj")
+                else if(platform=="at_coder")
                 {
-                    var url="https://competitive-coding-api.herokuapp.com/api/"+platform
-                    for(i in 0 until userSpojList.size)
+                    var url="https://master--glittering-monstera-c8038d.netlify.app/ranking/"+platform
+                    for(i in 0 until userAtcoderList.size)
                     {
-                        if(userSpojList[i].itsMe==true) LoggedInUserSjHandle=userSpojList[i].handle
-                        val handle:String=userSpojList.get(i).handle
-                        makeVolleyRequest(2,handle,url+"/"+handle)
+                        if(userAtcoderList[i].itsMe==true) LoggedInUserAtHandle=userAtcoderList[i].handle
+                        val handle:String=userAtcoderList.get(i).handle
+                        makeVolleyRequest(0,handle,url+"/"+handle)
                     }
                 }
-                else if(platform=="codechef")
+                else if(platform=="code_chef")
                 {
-                    var url="https://competitive-coding-api.herokuapp.com/api/"+platform
+
+                    var url="https://master--glittering-monstera-c8038d.netlify.app/ranking/"+platform
                     for(i in 0 until userCodechefList.size)
                     {
                         if(userCodechefList[i].itsMe==true) LoggedInUserCcHandle=userCodechefList[i].handle
                         val handle:String=userCodechefList.get(i).handle
-                        makeVolleyRequest(3,handle,url+"/"+handle)
+                        makeVolleyRequest(1,handle,url+"/"+handle)
                     }
                 }
                 while(requestsDone>0)
@@ -793,17 +797,17 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                             rankersCf.clear()
                             userCodeforcesList.clear()
                         }
-                        else if(platform=="leetcode")
+                        else if(platform=="leet_code")
                         {
                             rankersLc.clear()
                             userLeetcodeList.clear()
                         }
-                        else if(platform=="spoj")
+                        else if(platform=="at_coder")
                         {
-                            rankersSj.clear()
-                            userSpojList.clear()
+                            rankersAt.clear()
+                            userAtcoderList.clear()
                         }
-                        else if(platform=="codechef")
+                        else if(platform=="code_chef")
                         {
                             rankersCc.clear()
                             userCodechefList.clear()
@@ -840,7 +844,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
 
                 }
-                else if(platform=="leetcode"&&fragmenyActive)
+                else if(platform=="leet_code"&&fragmenyActive)
                 {
                     if(rankersLc.isNotEmpty())
                     {
@@ -866,15 +870,15 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
                 }
 
-                if(platform=="spoj"&&fragmenyActive)
+                if(platform=="at_coder"&&fragmenyActive)
                 {
-                    if(rankersSj.isNotEmpty())
+                    if(rankersAt.isNotEmpty())
                     {
                         try
                         {
-                            val sorted = rankersSj.sortedBy { it.rank }
-                            rankersSj.clear()
-                            rankersSj.addAll(sorted)
+                            val sorted = rankersAt.sortedByDescending { it.rank }
+                            rankersAt.clear()
+                            rankersAt.addAll(sorted)
                             supplyDataToAdapter()
                         }
                         catch (e:Exception)
@@ -885,11 +889,11 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                     else
                     {
                         disableVisibility()
-                        rankersSj.add(LeaderBoardRankers("-",0,false))
+                        rankersAt.add(LeaderBoardRankers("-",0,false))
                         supplyDataToAdapter()
                     }
                 }
-                if(platform=="codechef"&&fragmenyActive)
+                if(platform=="code_chef"&&fragmenyActive)
                 {
                     if(rankersCc.isNotEmpty())
                     {
@@ -950,19 +954,19 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                 binding.shimmer.visibility=View.GONE
                 if(currPlatform==0)
                 {
-                    ranklistAdapter.updateData(rankersCf)
+                    ranklistAdapter.updateData(rankersAt)
                 }
                 else if(currPlatform==1)
                 {
-                    ranklistAdapter.updateData(rankersLc)
+                    ranklistAdapter.updateData(rankersCc)
                 }
                 else if(currPlatform==2)
                 {
-                    ranklistAdapter.updateData(rankersSj)
+                    ranklistAdapter.updateData(rankersCf)
                 }
                 else if(currPlatform==3)
                 {
-                    ranklistAdapter.updateData(rankersCc)
+                    ranklistAdapter.updateData(rankersLc)
                 }
 
             })
@@ -993,7 +997,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
                     if(response.has("status")&&response.getString("status").lowercase()=="success"||response.getString("status").lowercase()=="ok")
                     {
-                        if(currPlatform==0&&platform==0)
+                        if(currPlatform==2&&platform==2)
                         {
                             val friends=response.getJSONArray("result")
                             for(i in 0 until friends.length())
@@ -1020,8 +1024,9 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                             requestsDone--
 
                         }
-                        else if(currPlatform==1&&platform==1)
+                        else if(currPlatform==3&&platform==3)
                         {
+                            Log.d("LeetCode response : ",response.toString())
                             if(response.has("totalSolved"))
                             {
                                 rankersLc.add(LeaderBoardRankers(userHandle,response.getString("totalSolved").toInt(),LoggedInUserLcHandle==userHandle))
@@ -1033,19 +1038,26 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                             requestsDone--
 
                         }
-                        else if(currPlatform==2&&platform==2)
+                        else if(currPlatform==0&&platform==0)
                         {
-                            if(response.has("rank"))
-                                rankersSj.add(LeaderBoardRankers(userHandle,response.getString("rank").toInt(),LoggedInUserSjHandle==userHandle))
+                            Log.d("ratingField",response.toString())
+                            if(response.has("rating")&&response.getString("rating")!="")
+                                rankersAt.add(LeaderBoardRankers(userHandle,response.getString("rating").toInt(),LoggedInUserAtHandle==userHandle))
                             else
-                                rankersSj.add(LeaderBoardRankers(userHandle,0,LoggedInUserSjHandle==userHandle))
+                                rankersAt.add(LeaderBoardRankers(userHandle,0,LoggedInUserAtHandle==userHandle))
                             requestsDone--
 
                         }
-                        else if(currPlatform==3&&platform==3)
+                        else if(currPlatform==1&&platform==1)
                         {
-                            if(response.has("rating"))
+                            if(response.has("rating")&&response.getString("rating")!="null")
+                            {
+                                Log.d("ccStatus",response.getString("status"))
+                                Log.d("ccRating",response.getString("rating"))
+                                Log.d("ccStars",response.getString("stars"))
+
                                 rankersCc.add(LeaderBoardRankers(userHandle,response.getString("rating").toInt(),LoggedInUserCcHandle==userHandle))
+                            }
                             else
                                 rankersCc.add(LeaderBoardRankers(userHandle,0,LoggedInUserCcHandle==userHandle))
 
@@ -1082,7 +1094,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
     override fun friendremoved(handle: String) {
 
-        if(currPlatform==0)
+        if(currPlatform==2)
         {
             Log.d("Deleting Status","${userCodeforcesList.size} $handle")
             var obj:FriendCodeforces?=null
@@ -1106,7 +1118,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
             binding.progressbar.visibility=View.VISIBLE
             binding.shimmer.visibility=View.VISIBLE
         }
-        else if(currPlatform==1)
+        else if(currPlatform==3)
         {
             var obj:FriendLeetcode?=null
             for(i in userLeetcodeList)
@@ -1129,10 +1141,10 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
 
         }
-        else if(currPlatform==2)
+        else if(currPlatform==0)
         {
-            var obj:FriendSpoj?=null
-            for(i in userSpojList)
+            var obj:FriendAtcoder?=null
+            for(i in userAtcoderList)
             {
                 if(i.handle==handle)
                 {
@@ -1141,7 +1153,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                 }
             }
             try {
-                viewmodel.FriendDeleteSpoj(obj!!)
+                viewmodel.FriendDeleteAtcoder(obj!!)
             }
             catch (e:Exception)
             {
@@ -1152,7 +1164,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
 
         }
-        else if(currPlatform==3)
+        else if(currPlatform==1)
         {
             var obj:FriendCodechef?=null
             for(i in userCodechefList)
@@ -1175,6 +1187,11 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
 
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fragmenyActive=true
     }
 
     override fun onStop() {

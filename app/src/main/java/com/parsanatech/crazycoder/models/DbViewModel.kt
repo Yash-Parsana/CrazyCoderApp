@@ -13,7 +13,7 @@ class DbViewModel(application:Application):AndroidViewModel(application) {
 
     val FriendCodeforcesHandles:LiveData<List<FriendCodeforces>>
     val FriendLeetcodeHandles:LiveData<List<FriendLeetcode>>
-    val FriendSpojHandles:LiveData<List<FriendSpoj>>
+    val FriendAtcoderHandles:LiveData<List<FriendAtcoder>>
     val FriendCodechefHandles:LiveData<List<FriendCodechef>>
     val MyPlatforms:LiveData<List<MyPlatforms>>
 
@@ -27,7 +27,7 @@ class DbViewModel(application:Application):AndroidViewModel(application) {
 
         FriendCodeforcesHandles=repository.FriendCodefoecesHandles
         FriendLeetcodeHandles=repository.FriendLeetcodeHandles
-        FriendSpojHandles=repository.FriendSpojHandles
+        FriendAtcoderHandles=repository.FriendSpojHandles
         FriendCodechefHandles=repository.FriendCodechefHandles
         MyPlatforms=repository.myplatforms
 
@@ -41,7 +41,7 @@ class DbViewModel(application:Application):AndroidViewModel(application) {
     {
         repository.FriendInsertLeetcode(obj)
     }
-    fun FriendInsertSpoj(obj:FriendSpoj)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendInsertAtcoder(obj:FriendAtcoder)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendInsertSpoj(obj)
     }
@@ -61,7 +61,7 @@ class DbViewModel(application:Application):AndroidViewModel(application) {
         repository.FriendDeleteLeetcode(obj)
     }
 
-    fun FriendDeleteSpoj(obj:FriendSpoj)=viewModelScope.launch(Dispatchers.IO)
+    fun FriendDeleteAtcoder(obj:FriendAtcoder)=viewModelScope.launch(Dispatchers.IO)
     {
         repository.FriendDeleteSpoj(obj)
     }

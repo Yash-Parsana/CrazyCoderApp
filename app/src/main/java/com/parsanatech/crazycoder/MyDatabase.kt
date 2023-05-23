@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = arrayOf(FriendCodeforces::class,FriendLeetcode::class,FriendSpoj::class,FriendCodechef::class,MyPlatforms::class), version = 2, exportSchema = false)
+@Database(entities = arrayOf(FriendCodeforces::class,FriendLeetcode::class,FriendAtcoder::class,FriendCodechef::class,MyPlatforms::class), version = 2, exportSchema = false)
 abstract class MyDatabase: RoomDatabase() {
 
 
