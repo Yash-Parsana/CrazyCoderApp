@@ -29,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_18
-        targetCompatibility JavaVersion.VERSION_18
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_18.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
         viewBinding true
@@ -98,7 +98,7 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     //    Glide
-    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
 
     //circular Image
