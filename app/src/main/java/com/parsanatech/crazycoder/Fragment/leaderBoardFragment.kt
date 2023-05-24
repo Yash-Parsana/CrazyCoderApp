@@ -1,6 +1,7 @@
 package com.parsanatech.crazycoder.Fragment
 
 import android.app.ActionBar
+import android.app.Activity
 import android.app.Application
 import android.app.Dialog
 import android.graphics.Color
@@ -220,99 +221,124 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
 
                                 if (response.has("status")&&response.getString("status").lowercase() == "success"||response.getString("status") == "OK") {
 
-                                    Log.d("Status success or ok",response.getString("status").toString())
+                                    if (isAdded()) {
+                                        Log.d(
+                                            "Status success or ok",
+                                            response.getString("status").toString()
+                                        )
 
-                                    addFriendbinding.progressbar.visibility = View.INVISIBLE
-                                    if (selectedPlatform == "at_coder") {
-                                        adduserRequest=true
-                                        if(currPlatform==0)
-                                        {
-                                            standAtSamePlatform=true
-                                            binding.shimmer.visibility=View.VISIBLE
-                                            binding.progressbar.visibility=View.VISIBLE
+                                        addFriendbinding.progressbar.visibility = View.INVISIBLE
+                                        if (selectedPlatform == "at_coder") {
+                                            adduserRequest = true
+                                            if (currPlatform == 0) {
+                                                standAtSamePlatform = true
+                                                binding.shimmer.visibility = View.VISIBLE
+                                                binding.progressbar.visibility = View.VISIBLE
+                                            }
+
+                                            try {
+                                                viewmodel.FriendInsertAtcoder(
+                                                    FriendAtcoder(
+                                                        handle = userHandle,
+                                                        itsMe = false
+                                                    )
+                                                )
+
+                                            } catch (e: Exception) {
+                                                Log.e(
+                                                    "Exception while storing Data in Room Database",
+                                                    e.toString()
+                                                )
+                                            }
+
+
+
+                                            Log.d("Inserted", "Yes")
+                                        } else if (selectedPlatform == "code_chef") {
+                                            adduserRequest = true
+                                            if (currPlatform == 1) {
+                                                standAtSamePlatform = true
+                                                binding.shimmer.visibility = View.VISIBLE
+                                                binding.progressbar.visibility = View.VISIBLE
+                                            }
+                                            try {
+                                                viewmodel.FriendInsertCodechef(
+                                                    FriendCodechef(
+                                                        handle = userHandle,
+                                                        itsMe = false
+                                                    )
+                                                )
+
+                                            } catch (e: Exception) {
+                                                Log.e(
+                                                    "Exception while storing Data in Room Database",
+                                                    e.toString()
+                                                )
+                                            }
+
+
+                                        } else if (selectedPlatform == "codeforces") {
+                                            adduserRequest = true
+
+                                            if (currPlatform == 2) {
+                                                standAtSamePlatform = true
+                                                binding.shimmer.visibility = View.VISIBLE
+                                                binding.progressbar.visibility = View.VISIBLE
+                                            }
+                                            try {
+                                                viewmodel.FriendInsertCodeforces(
+                                                    FriendCodeforces(
+                                                        handle = userHandle,
+                                                        itsMe = false
+                                                    )
+                                                )
+                                            } catch (e: Exception) {
+                                                Log.e(
+                                                    "Exception while storing Data in Room Database",
+                                                    e.toString()
+                                                )
+                                            }
+
+                                        } else if (selectedPlatform == "leet_code") {
+                                            adduserRequest = true
+
+                                            if (currPlatform == 3) {
+                                                standAtSamePlatform = true
+                                                binding.shimmer.visibility = View.VISIBLE
+                                                binding.progressbar.visibility = View.VISIBLE
+                                            }
+                                            try {
+                                                viewmodel.FriendInsertLeetcode(
+                                                    FriendLeetcode(
+                                                        handle = userHandle,
+                                                        itsMe = false
+                                                    )
+                                                )
+                                            } catch (e: Exception) {
+                                                Log.e(
+                                                    "Exception while storing Data in Room Database",
+                                                    e.toString()
+                                                )
+                                            }
+                                        }
+                                        dialog.dismiss()
+                                    } else {
+                                        binding.shimmer.visibility = View.GONE
+                                        addFriendbinding.progressbar.visibility = View.INVISIBLE
+
+                                        if ((response.has("details") && response.getString("details") == "Invalid username") || (response.has(
+                                                "comment"
+                                            ) && response.getString("comment") == "handles: User with handle $userHandle not found") || (response.has(
+                                                "message"
+                                            ) && response.getString("message") == "user does not exist")
+                                        ) {
+                                            addFriendbinding.userhandle.setError("Invalid user handle")
                                         }
 
-                                        try {
-                                            viewmodel.FriendInsertAtcoder(FriendAtcoder(handle = userHandle, itsMe = false))
-
-                                        }
-                                        catch (e:Exception)
-                                        {
-                                            Log.e("Exception while storing Data in Room Database",e.toString())
-                                        }
-
-
-
-                                        Log.d("Inserted","Yes")
                                     }
-                                    else if (selectedPlatform == "code_chef") {
-                                        adduserRequest=true
-                                        if(currPlatform==1)
-                                        {
-                                            standAtSamePlatform=true
-                                            binding.shimmer.visibility=View.VISIBLE
-                                            binding.progressbar.visibility=View.VISIBLE
-                                        }
-                                        try {
-                                            viewmodel.FriendInsertCodechef(FriendCodechef(handle = userHandle, itsMe = false))
-
-                                        }
-                                        catch (e:Exception)
-                                        {
-                                            Log.e("Exception while storing Data in Room Database",e.toString())
-                                        }
-
-
-                                    }
-                                    else if (selectedPlatform == "codeforces") {
-                                        adduserRequest=true
-
-                                        if(currPlatform==2)
-                                        {
-                                            standAtSamePlatform=true
-                                            binding.shimmer.visibility=View.VISIBLE
-                                            binding.progressbar.visibility=View.VISIBLE
-                                        }
-                                        try {
-                                            viewmodel.FriendInsertCodeforces(FriendCodeforces(handle = userHandle, itsMe = false))
-                                        }
-                                        catch (e:Exception)
-                                        {
-                                            Log.e("Exception while storing Data in Room Database",e.toString())
-                                        }
-
-                                    }
-                                    else if(selectedPlatform=="leet_code")
-                                    {
-                                        adduserRequest=true
-
-                                        if(currPlatform==3)
-                                        {
-                                            standAtSamePlatform=true
-                                            binding.shimmer.visibility=View.VISIBLE
-                                            binding.progressbar.visibility=View.VISIBLE
-                                        }
-                                        try {
-                                            viewmodel.FriendInsertLeetcode(FriendLeetcode(handle = userHandle, itsMe = false))
-                                        }
-                                        catch (e:Exception)
-                                        {
-                                            Log.e("Exception while storing Data in Room Database",e.toString())
-                                        }
-                                    }
-                                    dialog.dismiss()
-                                } else {
-                                    binding.shimmer.visibility=View.GONE
-                                    addFriendbinding.progressbar.visibility = View.INVISIBLE
-
-                                    if ((response.has("details")&&response.getString("details") == "Invalid username")||(response.has("comment")&&response.getString("comment") == "handles: User with handle $userHandle not found")||(response.has("message")&&response.getString("message") == "user does not exist")) {
-                                        addFriendbinding.userhandle.setError("Invalid user handle")
-                                    }
-
-                                }
 
 //                        Log.d("User",response.toString())
-
+                                }
                             }, {
                                 binding.shimmer.visibility=View.GONE
                                 addFriendbinding.progressbar.visibility = View.INVISIBLE
@@ -691,7 +717,7 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
                                 {
                                     Log.e("Exception while calling updatedata fun of Adapter",e.toString())
                                 }
-                                requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                                getActivity()?.getWindow()?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
                             }
                             requestsDone=userAtcoderList.size

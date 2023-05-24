@@ -752,7 +752,7 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
             }
             else if(currSelectedPlatform==1&&platform=="code_chef")
             {
-                val unicode:Int = 0x2B50
+                val unicode:Int = 0x2B50;
                         try {
                     propertyListCc.add(profile_userinfo("Rating",obj.getString("rating").toString()))
 //                    propertyListCc.add(profile_userinfo("Max Rating",obj.getString("highest_rating").toString()))
