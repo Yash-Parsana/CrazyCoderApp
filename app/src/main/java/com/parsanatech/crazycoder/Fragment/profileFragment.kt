@@ -752,11 +752,11 @@ class profileFragment : Fragment(), leaderBoardItemSelected {
             }
             else if(currSelectedPlatform==1&&platform=="code_chef")
             {
-                val unicode:Int = 0x2B50;
+//                val unicode:Int = 0x2B50;
                         try {
                     propertyListCc.add(profile_userinfo("Rating",obj.getString("rating").toString()))
 //                    propertyListCc.add(profile_userinfo("Max Rating",obj.getString("highest_rating").toString()))
-                    propertyListCc.add(profile_userinfo("Star",(obj.getString("stars").toString().get(0)+" ${getEmojiByUnicode(unicode)}").toString()))
+                    propertyListCc.add(profile_userinfo("Star",(obj.getString("stars").toString().get(0)+" ${getEmojiByUnicode(0x2B50)}").toString()))
 //                    propertyListCc.add(profile_userinfo("Global Rank",obj.getString("global_rank").toString()))
 //                    propertyListCc.add(profile_userinfo("Country Rank",obj.getString("country_rank").toString()))
                     binding.shimmer.visibility=View.GONE
