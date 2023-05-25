@@ -81,7 +81,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:screenOrientation="unspecified" />
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
 
         <meta-data
             android:name="preloaded_fonts"

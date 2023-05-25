@@ -1226,4 +1226,14 @@ class leaderBoardFragment : Fragment(), leaderBoardItemSelected, FriendRemove {
         fragmenyActive=false
     }
 
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        val x= fragmenyActive.toString()
+//    }
+//
+//    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+//        super.onViewStateRestored(savedInstanceState)
+//        savedInstanceState
+//
+//    }
 }
