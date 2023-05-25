@@ -61,7 +61,7 @@ class SignUp : AppCompatActivity() {
 
 
         val progressbar=binding.progressbar
-
+        val Tick = binding.passwordTick
 
 
         binding.signin.setOnClickListener {
@@ -82,6 +82,7 @@ class SignUp : AppCompatActivity() {
                 val EnteredPassword=binding.password.text.toString().trim()
                 val EnteredConfirmPassword=binding.confirePassword.text.toString().trim()
                 val userEnterdName=binding.uiqueusername.text.toString().trim()
+                val passwordPattern = "(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=])(?=\\S+$).{12,}".toRegex()
 
                 if(userEnterdName.isEmpty())
                 {
@@ -109,12 +110,17 @@ class SignUp : AppCompatActivity() {
                     binding.password.setError("Please Enter Password")
 
                 }
-                if(EnteredPassword.isNotEmpty()&&EnteredPassword.length<6)
+                if(EnteredPassword.isNotEmpty()&&EnteredPassword.length<12)
                 {
-                    Log.d("Password Length Less than 6 char","Yes")
+                    Log.d("Password Length Less than 12 char","Yes")
                     progressbar.visibility=View.INVISIBLE
-                    binding.password.setError("Password should be at least 6 characters")
+                    binding.password.setError("Password should be at least 12 characters")
 
+                }
+                if (!passwordPattern.matches(EnteredPassword)) {
+                    Log.d("Password does not meet the requirements", "$EnteredPassword")
+                    binding.progressbar.visibility = View.INVISIBLE
+                    binding.password.setError("Password should contain at least one uppercase letter, one lowercase letter, one symbol, and no spaces")
                 }
                 if(EnteredConfirmPassword.isEmpty())
                 {
@@ -130,6 +136,10 @@ class SignUp : AppCompatActivity() {
                     binding.password.setError("Password is not matching")
                     binding.confirePassword.setError("Password is not matching")
 
+                }
+                if(EnteredPassword.isNotEmpty()&&EnteredPassword.length>=12 && passwordPattern.matches(EnteredPassword) && EnteredPassword==EnteredConfirmPassword)
+                {
+                    Tick.visibility = View.VISIBLE
                 }
                 else
                 {
@@ -345,7 +355,9 @@ class SignUp : AppCompatActivity() {
     val RC_SIGN_IN=10
     private fun signIn() {
         val signInIntent = googleSignInClient?.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        if (signInIntent != null) {
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
     }
 
     @Deprecated("Deprecated in Java")
