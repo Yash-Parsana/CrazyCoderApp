@@ -61,7 +61,7 @@ class SignUp : AppCompatActivity() {
 
 
         val progressbar=binding.progressbar
-
+        val Tick = binding.passwordTick
 
 
         binding.signin.setOnClickListener {
@@ -344,8 +344,7 @@ class SignUp : AppCompatActivity() {
 
     val RC_SIGN_IN=10
     private fun signIn() {
-        val signInIntent = googleSignInClient?.signInIntent
-        if(signInIntent!=null)
+        val signInIntent = googleSignInClient!!.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
