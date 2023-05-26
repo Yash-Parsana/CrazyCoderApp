@@ -10,23 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.parsanatech.crazycoder.R
 
 
-class PlatformAdapter(private val listner: platFormSelection): RecyclerView.Adapter<platformviewHolder>() {
+class PlatformAdapter(private val listner: platFormSelection) :
+    RecyclerView.Adapter<platformviewHolder>() {
 
-    val platformList=ArrayList<String>()
-    val nameforapi=ArrayList<String>()
-    var context:Context?=null
-    val allviews=ArrayList<View>()
-    var firstTime=true
-    var selectedPosition=0
+    val platformList = ArrayList<String>()
+    val nameforapi = ArrayList<String>()
+    var context: Context? = null
+    val allviews = ArrayList<View>()
+    var firstTime = true
+    var selectedPosition = 0
 
-    init
-    {
+    init {
         platformList.add("Atcoder")
         platformList.add("CodeChef")
         platformList.add("Codeforces")
         platformList.add("HackerRank")
         platformList.add("HackerEarth")
-//        platformList.add("KikStart")
         platformList.add("LeetCode")
 
 
@@ -35,16 +34,15 @@ class PlatformAdapter(private val listner: platFormSelection): RecyclerView.Adap
         nameforapi.add("codeforces")
         nameforapi.add("hacker_rank")
         nameforapi.add("hacker_earth")
-//        nameforapi.add("kick_start")
         nameforapi.add("leet_code")
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): platformviewHolder {
 
-        context=parent.context
+        context = parent.context
 
-        val xmlToView=LayoutInflater.from(context).inflate(R.layout.platforms,parent,false)
+        val xmlToView = LayoutInflater.from(context).inflate(R.layout.platforms, parent, false)
 
 
         allviews.add(xmlToView)
@@ -54,17 +52,16 @@ class PlatformAdapter(private val listner: platFormSelection): RecyclerView.Adap
 
     @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: platformviewHolder, position: Int) {
-        val platform=platformList.get(position)
-        holder.platformName.text=platform
+        val platform = platformList.get(position)
+        holder.platformName.text = platform
 
-        if(firstTime&&position==0)
-        {
+        if (firstTime && position == 0) {
             allviews[position].setBackgroundResource(R.drawable.platform_selected_bg)
-            firstTime=false
+            firstTime = false
         }
 
         holder.itemView.setOnClickListener {
-            selectedPosition=position
+            selectedPosition = position
             allviews.forEach {
                 it.setBackgroundResource(R.drawable.platform_bg)
 
@@ -83,11 +80,11 @@ class PlatformAdapter(private val listner: platFormSelection): RecyclerView.Adap
 
 }
 
-class platformviewHolder(xmlview:View):RecyclerView.ViewHolder(xmlview){
+class platformviewHolder(xmlview: View) : RecyclerView.ViewHolder(xmlview) {
 
-    val platformName=xmlview.findViewById<TextView>(R.id.platformname)
+    val platformName = xmlview.findViewById<TextView>(R.id.platformname)
 }
-interface platFormSelection
-{
-    fun platformselected(platform:String)
+
+interface platFormSelection {
+    fun platformselected(platform: String)
 }

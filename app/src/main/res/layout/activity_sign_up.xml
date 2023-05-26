@@ -5,164 +5,196 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkBG"
-    tools:context=".SignUp"
     android:gravity="center"
-    >
+    tools:context=".SignUp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
-        >
-
+        android:orientation="vertical">
 
         <ProgressBar
             android:id="@+id/progressbar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:max="100"
+            android:layout_marginTop="-7dp"
             android:backgroundTint="@color/white"
-            android:visibility="invisible"
+            android:indeterminate="true"
             android:indeterminateTint="@color/btnBgColor"
-            android:layout_marginTop="-7dp"/>
+            android:max="100"
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/create_new_account"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_marginBottom="30dp"
             android:layout_marginTop="30dp"
-            />
-
+            android:layout_marginBottom="30dp"
+            android:text="@string/create_new_account"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="25dp"
             android:paddingHorizontal="20dp"
-            >
+            android:paddingTop="25dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="5dp"
-                    >
+                    android:padding="5dp">
 
                     <EditText
                         android:id="@+id/uiqueusername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
                         android:background="@drawable/edit_text_bg"
                         android:hint="@string/crazycoder_username"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
+                        android:inputType="text"
                         android:paddingHorizontal="30sp"
+                        android:paddingVertical="15sp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/grayText"
-                        android:layout_marginVertical="10dp"
-                        android:inputType="text"
-                        />
+                        android:textSize="15sp" />
+
                     <EditText
                         android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
                         android:background="@drawable/edit_text_bg"
                         android:hint="@string/email_adderss"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
+                        android:inputType="textEmailAddress"
                         android:paddingHorizontal="30sp"
+                        android:paddingVertical="15sp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/grayText"
-                        android:layout_marginVertical="10dp"
-                        android:inputType="textEmailAddress"
-                        />
+                        android:textSize="15sp" />
 
-                    <EditText
-                        android:id="@+id/password"
+
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_bg"
-                        android:hint="@string/password"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
-                        android:paddingHorizontal="30sp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/grayText"
-                        android:layout_marginVertical="10dp"
-                        android:inputType="textPassword"
-                        />
+                        android:layout_marginVertical="10dp">
+
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_bg"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:paddingHorizontal="30sp"
+                            android:paddingVertical="15sp"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/grayText"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/passwordVisibilityToggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|end"
+                            android:padding="8dp"
+                            android:src="@drawable/icon_eye_password" />
+
+                    </FrameLayout>
+
                     <EditText
                         android:id="@+id/confirePassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
                         android:background="@drawable/edit_text_bg"
                         android:hint="@string/confirm_password"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
+                        android:inputType="textPassword"
                         android:paddingHorizontal="30sp"
+                        android:paddingVertical="15sp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/grayText"
-                        android:layout_marginVertical="10dp"
-                        android:inputType="textPassword"
-                        />
+                        android:textSize="15sp" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp">
+
+                        <EditText
+                            android:id="@+id/confirePassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_bg"
+                            android:hint="@string/confirm_password"
+                            android:inputType="textPassword"
+                            android:paddingHorizontal="30sp"
+                            android:paddingVertical="15sp"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/grayText"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/confirmPasswordVisibilityToggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|end"
+                            android:padding="8dp"
+                            android:src="@drawable/icon_eye_password" />
+
+                    </FrameLayout>
+
 
                     <Button
                         android:id="@+id/signup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
                         android:background="@drawable/btn_bg"
                         android:paddingHorizontal="30sp"
                         android:paddingVertical="15sp"
-                        android:layout_marginTop="60dp"
                         android:text="Sign Up"
-                        android:textColor="@color/white"
-                        />
+                        android:textColor="@color/white" />
+
                     <Button
                         android:id="@+id/signinwithgoogle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_google_24"
+                        android:layout_marginVertical="20dp"
                         android:background="@drawable/btn_bg"
                         android:backgroundTint="@color/white"
-                        android:paddingVertical="15dp"
+                        android:drawableStart="@drawable/ic_google_24"
                         android:paddingHorizontal="30dp"
+                        android:paddingVertical="15dp"
                         android:text="Sign In With Google"
-                        android:textColor="@color/black"
-                        android:layout_marginVertical="20dp"
-                        />
+                        android:textColor="@color/black" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:gravity="center"
-                        >
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/white"
                             android:text="Have an Account?"
-                            />
+                            android:textColor="@color/white" />
+
                         <TextView
                             android:id="@+id/signin"
-                            android:paddingHorizontal="3sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/btnBgColor"
+                            android:paddingHorizontal="3sp"
                             android:text="Sign In"
-                            />
+                            android:textColor="@color/btnBgColor" />
                     </LinearLayout>
 
                 </LinearLayout>

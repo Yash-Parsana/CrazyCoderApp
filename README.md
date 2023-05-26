@@ -9,7 +9,7 @@
 
 <div align="center">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
-<img src="https://forthebadge.com/images/badges/uses-brains.svg" />
+<img src="https://forthebadge.com/images/badges/uses-brains.svg" /> 
 <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
  <br>
  <img src="https://img.shields.io/github/repo-size/Yash-Parsana/CrazyCoderApp?style=for-the-badge" />
