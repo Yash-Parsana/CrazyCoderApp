@@ -57,8 +57,8 @@ class SignUp : AppCompatActivity() {
         }
 
 
-        val progressbar = binding.progressbar
-
+        val progressbar=binding.progressbar
+        val Tick = binding.passwordTick
 
 
         binding.signin.setOnClickListener {
@@ -74,10 +74,11 @@ class SignUp : AppCompatActivity() {
                 Log.d("Clicked onSignUp", "Yes")
                 binding.progressbar.visibility = View.VISIBLE
 
-                val EnteredEmail = binding.email.text.toString().trim()
-                val EnteredPassword = binding.password.text.toString().trim()
-                val EnteredConfirmPassword = binding.confirePassword.text.toString().trim()
-                val userEnterdName = binding.uiqueusername.text.toString().trim()
+                val EnteredEmail=binding.email.text.toString().trim()
+                val EnteredPassword=binding.password.text.toString().trim()
+                val EnteredConfirmPassword=binding.confirePassword.text.toString().trim()
+                val userEnterdName=binding.uiqueusername.text.toString().trim()
+                val passwordPattern = "(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=])(?=\\S+$).{12,}".toRegex()
 
                 if (userEnterdName.isEmpty()) {
                     Log.d("UserName is Empty", "Yes")
@@ -101,16 +102,23 @@ class SignUp : AppCompatActivity() {
                     binding.password.error = "Please Enter Password"
 
                 }
-                if (EnteredPassword.isNotEmpty() && EnteredPassword.length < 6) {
-                    Log.d("Password Length Less than 6 char", "Yes")
-                    progressbar.visibility = View.INVISIBLE
-                    binding.password.error = "Password should be at least 6 characters"
+                if(EnteredPassword.isNotEmpty()&&EnteredPassword.length<12)
+                {
+                    Log.d("Password Length Less than 12 char","Yes")
+                    progressbar.visibility=View.INVISIBLE
+                    binding.password.setError("Password should be at least 12 characters")
 
                 }
-                if (EnteredConfirmPassword.isEmpty()) {
-                    Log.d("Confirm Password is Empty", "Yes")
-                    progressbar.visibility = View.INVISIBLE
-                    binding.confirePassword.error = "please Re-enter password"
+                if (!passwordPattern.matches(EnteredPassword)) {
+                    Log.d("Password does not meet the requirements", "$EnteredPassword")
+                    binding.progressbar.visibility = View.INVISIBLE
+                    binding.password.setError("Password should contain at least one uppercase letter, one lowercase letter, one symbol, and no spaces")
+                }
+                if(EnteredConfirmPassword.isEmpty())
+                {
+                    Log.d("Confirm Password is Empty","Yes")
+                    progressbar.visibility=View.INVISIBLE
+                    binding.confirePassword.setError("please Re-enter password")
 
                 }
                 if (EnteredPassword != EnteredConfirmPassword) {
@@ -122,9 +130,16 @@ class SignUp : AppCompatActivity() {
                     binding.password.error = "Password is not matching"
                     binding.confirePassword.error = "Password is not matching"
 
-                } else {
-                    if (validate(userEnterdName)) {
-                        Log.d("Every Thins are validated", "Yes")
+                }
+                if(EnteredPassword.isNotEmpty()&&EnteredPassword.length>=12 && passwordPattern.matches(EnteredPassword) && EnteredPassword==EnteredConfirmPassword)
+                {
+                    Tick.visibility = View.VISIBLE
+                }
+                else
+                {
+                    if(validate(userEnterdName))
+                    {
+                        Log.d("Every Thins are validated","Yes")
                         try {
 
                             firestoreDb.collection("users").document("userNameToId").get()

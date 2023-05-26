@@ -152,6 +152,23 @@
                     </FrameLayout>
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="right">
+
+                        <ImageView
+                            android:id="@+id/passwordTick"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_tick"
+                            android:visibility="invisible"
+                            />
+
+                    </LinearLayout>
+
+
                     <Button
                         android:id="@+id/signup"
                         android:layout_width="match_parent"
