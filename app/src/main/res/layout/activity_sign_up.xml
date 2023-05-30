@@ -60,64 +60,121 @@
                     android:padding="5dp"
                     >
 
-                    <EditText
-                        android:id="@+id/uiqueusername"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:startIconDrawable="@drawable/baseline_person_24"
                         android:background="@drawable/edit_text_bg"
-                        android:hint="@string/crazycoder_username"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
-                        android:paddingHorizontal="30sp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/grayText"
+                        android:paddingHorizontal="10sp"
                         android:layout_marginVertical="10dp"
                         android:inputType="text"
-                        />
-                    <EditText
-                        android:id="@+id/email"
+                        app:startIconTint="@color/white"
+
+                        android:textColorHint="@color/grayText"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/edit_text_bg"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="2sp"
+                            android:hint="@string/crazycoder_username"
+                            android:id="@+id/uiqueusername"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:startIconDrawable="@drawable/baseline_email_24"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/edit_text_bg"
-                        android:hint="@string/email_adderss"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
-                        android:paddingHorizontal="30sp"
-                        android:textColor="@color/white"
+                        android:paddingHorizontal="10sp"
+
                         android:textColorHint="@color/grayText"
                         android:layout_marginVertical="10dp"
                         android:inputType="textEmailAddress"
-                        />
+                        app:startIconTint="@color/white"
+                        >
 
-                    <EditText
-                        android:id="@+id/password"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email"
+                            android:textColor="@color/white"
+                            android:hint="@string/email_adderss"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/edit_text_bg"
+                            android:textSize="15sp"
+                            android:layout_height="wrap_content"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:startIconDrawable="@drawable/baseline_lock_24"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/edit_text_bg"
-                        android:hint="@string/password"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
-                        android:paddingHorizontal="30sp"
-                        android:textColor="@color/white"
+                        android:paddingHorizontal="10sp"
                         android:textColorHint="@color/grayText"
                         android:layout_marginVertical="10dp"
                         android:inputType="textPassword"
-                        />
-                    <EditText
-                        android:id="@+id/confirePassword"
+                        app:startIconTint="@color/white">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:hint="@string/password"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/edit_text_bg"
+                            android:layout_height="wrap_content"
+
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:startIconDrawable="@drawable/baseline_lock_24"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="@drawable/edit_text_bg"
-                        android:hint="@string/confirm_password"
-                        android:paddingVertical="15sp"
-                        android:textSize="15sp"
-                        android:paddingHorizontal="30sp"
-                        android:textColor="@color/white"
+                        android:paddingHorizontal="10sp"
                         android:textColorHint="@color/grayText"
                         android:layout_marginVertical="10dp"
                         android:inputType="textPassword"
-                        />
+                        app:startIconTint="@color/white">
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/confirePassword"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:hint="@string/confirm_password"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/edit_text_bg"
+                            android:layout_height="wrap_content"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="right">
+
+                        <ImageView
+                            android:id="@+id/passwordTick"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_tick"
+                            android:visibility="invisible"
+                            />
+
+                    </LinearLayout>
                     <Button
                         android:id="@+id/signup"
                         android:layout_width="match_parent"
