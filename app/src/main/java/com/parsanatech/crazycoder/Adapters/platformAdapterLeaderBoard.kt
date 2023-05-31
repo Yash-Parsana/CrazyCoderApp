@@ -19,17 +19,18 @@ class platformAdapterLeaderBoard(val listner:leaderBoardItemSelected,fragment:In
     var fragmentCall:Int=0 // fragment call specify from which fragment Adapter is called 1:LeaderBoardFragment 2:profileFragment
 
     init {
+        platforms.add("AtCoder")
         platforms.add("CodeChef")
         platforms.add("Codeforces")
 //        platforms.add("Interviewbit")
         platforms.add("Leetcode")
-        platforms.add("Spoj")
+//        platforms.add("Spoj")
 
-        Apiplatforms.add("codechef")
+        Apiplatforms.add("at_coder")
+        Apiplatforms.add("code_chef")
         Apiplatforms.add("codeforces")
 //        Apiplatforms.add("interviewbit")
-        Apiplatforms.add("leetcode")
-        Apiplatforms.add("spoj")
+        Apiplatforms.add("leet_code")
         fragmentCall=fragment
 
     }

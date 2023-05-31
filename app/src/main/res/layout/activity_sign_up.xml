@@ -174,7 +174,6 @@
                             android:visibility="invisible"
                             />
 
-                    </LinearLayout>
                     <Button
                         android:id="@+id/signup"
                         android:layout_width="match_parent"

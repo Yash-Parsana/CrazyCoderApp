@@ -9,7 +9,7 @@ class DbRepository(private val myDao:Dao) {
 
     val FriendLeetcodeHandles:LiveData<List<FriendLeetcode>> = myDao.getFriendsLeetcodeHandles()
 
-    val FriendSpojHandles:LiveData<List<FriendSpoj>> = myDao.getFriendSpojHandle()
+    val FriendSpojHandles:LiveData<List<FriendAtcoder>> = myDao.getFriendAtcoderHandle()
 
     val FriendCodechefHandles:LiveData<List<FriendCodechef>> = myDao.getFriendCodechefHandle()
 
@@ -23,9 +23,9 @@ class DbRepository(private val myDao:Dao) {
     {
         return myDao.FriendInsertLeetcode(obj)
     }
-    fun FriendInsertSpoj(obj:FriendSpoj)
+    fun FriendInsertSpoj(obj:FriendAtcoder)
     {
-        return myDao.FriendInsertSpoj(obj)
+        return myDao.FriendInsertAtcoder(obj)
     }
 
     fun FriendInsertCodechef(obj:FriendCodechef)
@@ -41,9 +41,9 @@ class DbRepository(private val myDao:Dao) {
     {
         return myDao.FriendDeleteLeetcode(obj)
     }
-    fun FriendDeleteSpoj(obj:FriendSpoj)
+    fun FriendDeleteSpoj(obj:FriendAtcoder)
     {
-        return myDao.FriendDeleteSpoj(obj)
+        return myDao.FriendDeleteAtcoder(obj)
     }
 
     fun FriendDeleteCodechef(obj:FriendCodechef)
