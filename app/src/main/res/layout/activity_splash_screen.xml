@@ -5,14 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     android:background="@color/darkBG"
     tools:context=".SplashScreenActivity">
 
-    <ImageView
-        android:layout_width="256dp"
-        android:layout_height="256dp"
-        android:src="@drawable/logo"
-        />
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_marginBottom="15dp"/>
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allura"
+        android:text=""
+        android:textColor="#2394f4"
+        android:textSize="46sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
