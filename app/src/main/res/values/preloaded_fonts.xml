@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/allura</item>
+        <item>@font/dancing_script_bold</item>
         <item>@font/quicksand_light</item>
+        <item>@font/satisfy</item>
     </array>
 </resources>
