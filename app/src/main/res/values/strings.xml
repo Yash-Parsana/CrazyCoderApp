@@ -10,6 +10,7 @@
     <string name="default_web_client_id_inString">681296739188-6gvu7iasijrmaksp0chv83gm1jdpesru.apps.googleusercontent.com</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splashScreen">.</string>
 
     <string-array name="platforms">
         <item>Atcoder</item>
