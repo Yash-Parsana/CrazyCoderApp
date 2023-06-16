@@ -34,6 +34,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         val interval:Long=4250
 
+
         object : CountDownTimer(interval, 1000) {
             override fun onTick(millisUntilFinished: Long) {
             }
@@ -67,6 +68,7 @@ class SplashScreenActivity : AppCompatActivity() {
             finish()
         }, (text.length * delayBetweenLetters) + animationDuration + 1000L) // Add extra delay after animation completes
     }
+
 
 
 }
