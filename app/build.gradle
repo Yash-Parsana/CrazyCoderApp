@@ -33,7 +33,7 @@ android {
         targetCompatibility JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_18.toString()
     }
     buildFeatures {
         viewBinding true
