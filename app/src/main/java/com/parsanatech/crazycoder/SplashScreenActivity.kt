@@ -27,18 +27,17 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         val textView = findViewById<TextView>(R.id.nameTextView)
-        val imageView = findViewById<ImageView>(R.id.logo)
+//        val imageView = findViewById<ImageView>(R.id.logo)
 
-        animateImage(imageView)
+//        animateImage(imageView)
         animateText(textView, appTitle)
 
-        val interval:Long=3250
+        val interval:Long=4250
+
 
         object : CountDownTimer(interval, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-
             }
-
             override fun onFinish() {
                 startActivity(Intent(this@SplashScreenActivity, SignUp::class.java))
                 finish()
@@ -46,15 +45,15 @@ class SplashScreenActivity : AppCompatActivity() {
         }.start()
     }
 
-    private fun animateImage(imageView: ImageView) {
-        val animation = AlphaAnimation(0f, 1f)
-        animation.duration = 2000
-        animation.fillAfter = true
-
-        imageView.startAnimation(animation)
-    }
+//    private fun animateImage(imageView: ImageView) {
+//        val animation = AlphaAnimation(0f, 1f)
+//        animation.duration = 2000
+//        animation.fillAfter = true
+//
+//        imageView.startAnimation(animation)
+//    }
     private fun animateText(textView: TextView, text: String) {
-        val animationDuration = 1000L // 1 second
+        val animationDuration = 2000L // 1 second
         val delayBetweenLetters = 180L // 0.2 second
 
         for (i in text.indices) {
@@ -69,6 +68,7 @@ class SplashScreenActivity : AppCompatActivity() {
             finish()
         }, (text.length * delayBetweenLetters) + animationDuration + 1000L) // Add extra delay after animation completes
     }
+
 
 
 }

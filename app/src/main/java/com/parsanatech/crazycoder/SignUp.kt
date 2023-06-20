@@ -354,6 +354,7 @@ class SignUp : AppCompatActivity() {
 
     val RC_SIGN_IN=10
     private fun signIn() {
+
         val signInIntent = googleSignInClient?.signInIntent
         if (signInIntent != null) {
             startActivityForResult(signInIntent, RC_SIGN_IN)
