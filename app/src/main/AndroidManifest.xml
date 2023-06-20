@@ -34,7 +34,9 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/dialogDarkcolor" />
 
-
+        <activity android:name=".MyCustomAppIntro"
+            android:label="My Custom AppIntro"
+            android:exported="false"/>
         <activity
             android:name=".AddPlatformActivity"
             android:exported="false" />
