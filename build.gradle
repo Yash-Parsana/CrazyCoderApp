@@ -1,6 +1,7 @@
 buildscript {
     repositories {
-        google()  // Google's Maven repository
+        google()
+        maven { url "https://jitpack.io" }// Google's Maven repository
 
     }
     dependencies {
