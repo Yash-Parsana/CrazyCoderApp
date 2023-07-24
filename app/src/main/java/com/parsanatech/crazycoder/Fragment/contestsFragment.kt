@@ -50,7 +50,7 @@ class contestsFragment : Fragment(), platFormSelection, ImplementReminder {
 
 
         try {
-            requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);// if not touchable flag remains in leaderboard then clear it
+            getActivity()?.getWindow()?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);// if not touchable flag remains in leaderboard then clear it
 
         }
         catch (e:Exception)

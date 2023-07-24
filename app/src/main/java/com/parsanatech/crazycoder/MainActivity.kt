@@ -1,5 +1,6 @@
 package com.parsanatech.crazycoder
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -99,14 +100,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomnavigationbar.setOnItemSelectedListener {
 
-            when(it)
-            {
-                R.id.contests->setCurrentFragment(homefragment)
-                R.id.leadrboard->setCurrentFragment(leaderfragment)
-                R.id.sde->setCurrentFragment(sdefragment)
-                R.id.chat->setCurrentFragment(chatfragment)
-                R.id.profile->setCurrentFragment(profilefragment)
-            }
+                    when (it) {
+                        R.id.contests -> setCurrentFragment(homefragment)
+                        R.id.leadrboard -> setCurrentFragment(leaderfragment)
+                        R.id.sde -> setCurrentFragment(sdefragment)
+                        R.id.chat -> setCurrentFragment(chatfragment)
+                        R.id.profile -> setCurrentFragment(profilefragment)
+                    }
         }
 
 
